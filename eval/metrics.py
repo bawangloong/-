@@ -25,6 +25,7 @@ COLOR_ALIASES = {
     "绿牌": "green",
     "新能源": "green",
     "新能源绿": "green",
+    "绿牌（新能源）": "green",
     "white": "white",
     "白": "white",
     "白色": "white",

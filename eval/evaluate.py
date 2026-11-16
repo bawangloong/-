@@ -16,6 +16,7 @@ from pathlib import Path
 from metrics import (
     DEFAULT_IOU_THRESHOLD,
     SPLITS,
+    canon_color,
     iou,
     median,
     percentile_nearest_rank,
@@ -132,6 +133,8 @@ def check_timer_helpers() -> None:
         raise SystemExit("IoU 0.5 的手算对照失败")
     if abs(iou((10, 10, 100, 40), (10, 10, 100, 10)) - 0.25) > 1e-12:
         raise SystemExit("IoU 0.25 的手算对照失败")
+    if canon_color("绿牌（新能源）") != "green":
+        raise SystemExit("B 模块的绿色中文名没有映射到 green")
 
 
 def run_fixture(iou_threshold: float) -> int:
