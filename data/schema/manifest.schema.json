@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "manifest.schema.json",
+  "title": "固定划分清单",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "description",
+    "frozen_split_names",
+    "evaluate_splits",
+    "library_must_not_overlap",
+    "splits"
+  ],
+  "properties": {
+    "version": {"type": "integer", "const": 1},
+    "description": {"type": "string"},
+    "frozen_split_names": {
+      "type": "array",
+      "const": ["development", "library", "validation", "final_test"]
+    },
+    "evaluate_splits": {
+      "type": "array",
+      "const": ["validation", "final_test"]
+    },
+    "library_must_not_overlap": {
+      "type": "array",
+      "const": ["validation", "final_test"]
+    },
+    "splits": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["development", "library", "validation", "final_test"],
+      "properties": {
+        "development": {"$ref": "#/$defs/idList"},
+        "library": {"$ref": "#/$defs/idList"},
+        "validation": {"$ref": "#/$defs/idList"},
+        "final_test": {"$ref": "#/$defs/idList"}
+      }
+    }
+  },
+  "$defs": {
+    "idList": {
+      "type": "array",
+      "items": {"type": "string", "pattern": "^\\S+$"}
+    }
+  }
+}

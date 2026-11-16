@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "annotation.schema.json",
+  "title": "车牌图像标注",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "image_id",
+    "relative_path",
+    "width",
+    "height",
+    "source",
+    "purpose",
+    "category",
+    "has_plate",
+    "plates",
+    "conditions"
+  ],
+  "properties": {
+    "_example": {"type": "boolean"},
+    "_comment": {"type": "string"},
+    "image_id": {"type": "string", "pattern": "^\\S+$"},
+    "relative_path": {"type": "string"},
+    "width": {"type": "integer", "minimum": 0},
+    "height": {"type": "integer", "minimum": 0},
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["origin", "name", "license"],
+      "properties": {
+        "origin": {"enum": ["self_captured", "public", "synthetic", "unknown"]},
+        "name": {"type": "string", "minLength": 1},
+        "license": {"type": "string", "minLength": 1},
+        "url": {"type": "string"},
+        "note": {"type": "string"}
+      }
+    },
+    "purpose": {"enum": ["development", "library", "validation", "final_test"]},
+    "category": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "no_plate",
+          "single_plate",
+          "multi_plate",
+          "color_blue",
+          "color_yellow",
+          "color_green",
+          "color_white",
+          "color_black",
+          "tilt",
+          "blur",
+          "glare",
+          "normal",
+          "other"
+        ]
+      }
+    },
+    "has_plate": {"type": "boolean"},
+    "conditions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["tilt", "blur", "glare"],
+      "properties": {
+        "tilt": {"type": "boolean"},
+        "blur": {"type": "boolean"},
+        "glare": {"type": "boolean"}
+      }
+    },
+    "plates": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/plate"}
+    },
+    "notes": {"type": "string"},
+    "annotator": {"type": "string"},
+    "reviewed": {"type": "boolean"}
+  },
+  "$defs": {
+    "plate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["plate_id", "box", "number", "color", "char_count"],
+      "properties": {
+        "plate_id": {"type": "string", "minLength": 1},
+        "box": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["x", "y", "w", "h"],
+          "properties": {
+            "x": {"type": "integer", "minimum": 0},
+            "y": {"type": "integer", "minimum": 0},
+            "w": {"type": "integer", "exclusiveMinimum": 0},
+            "h": {"type": "integer", "exclusiveMinimum": 0}
+          }
+        },
+        "quad": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["x", "y"],
+            "properties": {
+              "x": {"type": "number", "minimum": 0},
+              "y": {"type": "number", "minimum": 0}
+            }
+          }
+        },
+        "number": {"type": "string"},
+        "color": {
+          "enum": [
+            "blue", "蓝", "蓝色", "蓝牌",
+            "yellow", "黄", "黄色", "黄牌",
+            "green", "绿", "绿色", "绿牌", "新能源", "新能源绿", "绿牌（新能源）",
+            "white", "白", "白色", "白牌",
+            "black", "黑", "黑色", "黑牌",
+            "unknown", "未知", "无法判断"
+          ]
+        },
+        "char_count": {"type": "integer", "minimum": 0},
+        "chars": {"type": "array", "items": {"type": "string", "minLength": 1, "maxLength": 1}},
+        "readable": {"type": "boolean"},
+        "notes": {"type": "string"}
+      }
+    }
+  }
+}
