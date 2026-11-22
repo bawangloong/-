@@ -1,0 +1,287 @@
+{
+  "color": {
+    "color": "white",
+    "label": "白牌",
+    "confidence": 1.0,
+    "detail": {
+      "hist": {
+        "blue": 0.0,
+        "yellow": 0.0,
+        "green": 0.0,
+        "white": 0.0,
+        "black": 0.0,
+        "unknown": 0.0
+      },
+      "sat_ratio": 0.0,
+      "median_v": 245.0
+    }
+  },
+  "segmentation": {
+    "count": 7,
+    "status": "ok",
+    "boxes": [
+      [
+        41,
+        32,
+        74,
+        75
+      ],
+      [
+        124,
+        38,
+        31,
+        58
+      ],
+      [
+        181,
+        37,
+        38,
+        60
+      ],
+      [
+        226,
+        37,
+        38,
+        60
+      ],
+      [
+        269,
+        38,
+        41,
+        58
+      ],
+      [
+        315,
+        38,
+        37,
+        58
+      ],
+      [
+        360,
+        37,
+        37,
+        60
+      ]
+    ],
+    "box_coordinates": "B stage norm image (height 140), not original image coordinates"
+  },
+  "recognition": {
+    "text": "苏E66T78",
+    "character_count": 7,
+    "layout": "standard",
+    "characters": [
+      {
+        "position": 0,
+        "label": "苏",
+        "similarity": 0.7523348331451416,
+        "margin": 0.005698144435882568,
+        "status": "needs_review",
+        "message": "匹配较弱或候选相近，建议复核",
+        "candidates": [
+          {
+            "label": "苏",
+            "similarity": 0.7523348331451416,
+            "sample_index": 8416,
+            "sample_path": "zh_su/e82f1ef0114ae631852b.jpg"
+          },
+          {
+            "label": "浙",
+            "similarity": 0.746636688709259,
+            "sample_index": 9088,
+            "sample_path": "zh_zhe/b0bbdf43ef2667f16eea.jpg"
+          },
+          {
+            "label": "陕",
+            "similarity": 0.7420576810836792,
+            "sample_index": 8285,
+            "sample_path": "zh_shan/53f18fa0e898fa2d3dcf.jpg"
+          }
+        ]
+      },
+      {
+        "position": 1,
+        "label": "E",
+        "similarity": 0.9587928652763367,
+        "margin": 0.07087111473083496,
+        "status": "ok",
+        "message": "",
+        "candidates": [
+          {
+            "label": "E",
+            "similarity": 0.9587928652763367,
+            "sample_index": 5457,
+            "sample_path": "E/e3785bbfa815083a6f0e.jpg"
+          },
+          {
+            "label": "F",
+            "similarity": 0.8879217505455017,
+            "sample_index": 5572,
+            "sample_path": "F/b35c487c21eab4239baf.jpg"
+          },
+          {
+            "label": "G",
+            "similarity": 0.8306978940963745,
+            "sample_index": 5699,
+            "sample_path": "G/b49e4637705c59f77cd6.jpg"
+          }
+        ]
+      },
+      {
+        "position": 2,
+        "label": "6",
+        "similarity": 0.9151197671890259,
+        "margin": 0.04810363054275513,
+        "status": "ok",
+        "message": "",
+        "candidates": [
+          {
+            "label": "6",
+            "similarity": 0.9151197671890259,
+            "sample_index": 2282,
+            "sample_path": "6/99a762c73f4f114c1ce7.jpg"
+          },
+          {
+            "label": "G",
+            "similarity": 0.8670161366462708,
+            "sample_index": 5708,
+            "sample_path": "G/c82f4f27fac51efeb39a.jpg"
+          },
+          {
+            "label": "5",
+            "similarity": 0.8504221439361572,
+            "sample_index": 1779,
+            "sample_path": "5/9320cc486c550e264d06.jpg"
+          }
+        ]
+      },
+      {
+        "position": 3,
+        "label": "6",
+        "similarity": 0.9151197671890259,
+        "margin": 0.04810363054275513,
+        "status": "ok",
+        "message": "",
+        "candidates": [
+          {
+            "label": "6",
+            "similarity": 0.9151197671890259,
+            "sample_index": 2282,
+            "sample_path": "6/99a762c73f4f114c1ce7.jpg"
+          },
+          {
+            "label": "G",
+            "similarity": 0.8670161366462708,
+            "sample_index": 5708,
+            "sample_path": "G/c82f4f27fac51efeb39a.jpg"
+          },
+          {
+            "label": "5",
+            "similarity": 0.8504221439361572,
+            "sample_index": 1779,
+            "sample_path": "5/9320cc486c550e264d06.jpg"
+          }
+        ]
+      },
+      {
+        "position": 4,
+        "label": "T",
+        "similarity": 0.9067714214324951,
+        "margin": 0.09089088439941406,
+        "status": "ok",
+        "message": "",
+        "candidates": [
+          {
+            "label": "T",
+            "similarity": 0.9067714214324951,
+            "sample_index": 6858,
+            "sample_path": "T/4798ec57b28d07c010fb.jpg"
+          },
+          {
+            "label": "1",
+            "similarity": 0.815880537033081,
+            "sample_index": 474,
+            "sample_path": "1/4cec8322496121fd2434.jpg"
+          },
+          {
+            "label": "Y",
+            "similarity": 0.7902774810791016,
+            "sample_index": 7134,
+            "sample_path": "Y/664fa10a148388726dd9.jpg"
+          }
+        ]
+      },
+      {
+        "position": 5,
+        "label": "7",
+        "similarity": 0.9116168022155762,
+        "margin": 0.10546040534973145,
+        "status": "ok",
+        "message": "",
+        "candidates": [
+          {
+            "label": "7",
+            "similarity": 0.9116168022155762,
+            "sample_index": 2821,
+            "sample_path": "7/db1c8c9e1614f998038a.jpg"
+          },
+          {
+            "label": "Z",
+            "similarity": 0.8061563968658447,
+            "sample_index": 7187,
+            "sample_path": "Z/2158c4eb52a5dd242e45.jpg"
+          },
+          {
+            "label": "2",
+            "similarity": 0.7874727249145508,
+            "sample_index": 767,
+            "sample_path": "2/7dcb1d946ca41ce2efc8.jpg"
+          }
+        ]
+      },
+      {
+        "position": 6,
+        "label": "8",
+        "similarity": 0.9402014017105103,
+        "margin": 0.04172635078430176,
+        "status": "ok",
+        "message": "",
+        "candidates": [
+          {
+            "label": "8",
+            "similarity": 0.9402014017105103,
+            "sample_index": 3506,
+            "sample_path": "8/eb0928d4a0be6edc2714.jpg"
+          },
+          {
+            "label": "B",
+            "similarity": 0.8984750509262085,
+            "sample_index": 4914,
+            "sample_path": "B/903061f84fe322a39442.jpg"
+          },
+          {
+            "label": "S",
+            "similarity": 0.8688681125640869,
+            "sample_index": 6774,
+            "sample_path": "S/5de198c7aa79c493228a.jpg"
+          }
+        ]
+      }
+    ],
+    "warnings": [
+      "位置约束仅覆盖常见民用 7/8 位结构，不验证全部号牌规则"
+    ],
+    "score_definition": "cosine similarity, not a correctness probability",
+    "status": "needs_review",
+    "segmentation_status": "ok"
+  },
+  "source": "white_7.png",
+  "evaluation_only": {
+    "truth": "苏E66T78",
+    "source": "B make_test_plates.py SPECS (synthetic)",
+    "exact_match": true
+  },
+  "archived_slice_comparison": {
+    "same_count": true,
+    "all_pixels_equal": true
+  }
+}

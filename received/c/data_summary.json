@@ -1,0 +1,364 @@
+{
+  "seed": 20261116,
+  "repository": "https://github.com/wzh191920/License-Plate-Recognition",
+  "commit": "34ba808ea2563b3b2ff7266b9cc6d0d9a98f52b1",
+  "sources": [
+    {
+      "file": "chars2.7z",
+      "url": "https://raw.githubusercontent.com/wzh191920/License-Plate-Recognition/34ba808ea2563b3b2ff7266b9cc6d0d9a98f52b1/train/chars2.7z",
+      "bytes": 3336217,
+      "git_blob_sha1": "6687c3379a464bb0a63fd00deedcf1252daca8b5",
+      "sha256": "dfa87bac354f784c0b4e98f87822a1b4071c6e7178e20547e007ce4adf6ae60d"
+    },
+    {
+      "file": "charsChinese.7z",
+      "url": "https://raw.githubusercontent.com/wzh191920/License-Plate-Recognition/34ba808ea2563b3b2ff7266b9cc6d0d9a98f52b1/train/charsChinese.7z",
+      "bytes": 1099009,
+      "git_blob_sha1": "5e4a173a20a1f3421f18f333b9857332d287ed40",
+      "sha256": "3544ffef01b960db987e51dca4a4ca43ba5c41e2717840a98136929f29e012c4"
+    }
+  ],
+  "raw_supported_images": 16395,
+  "kept_images": 13046,
+  "split_counts": {
+    "test": 1958,
+    "validation": 1958,
+    "train": 9130
+  },
+  "classes": 65,
+  "per_class": {
+    "0": {
+      "test": 85,
+      "validation": 85,
+      "train": 399
+    },
+    "1": {
+      "test": 52,
+      "validation": 52,
+      "train": 241
+    },
+    "2": {
+      "test": 64,
+      "validation": 64,
+      "train": 301
+    },
+    "3": {
+      "test": 65,
+      "validation": 65,
+      "train": 303
+    },
+    "4": {
+      "test": 49,
+      "validation": 49,
+      "train": 227
+    },
+    "5": {
+      "test": 121,
+      "validation": 121,
+      "train": 564
+    },
+    "6": {
+      "test": 83,
+      "validation": 83,
+      "train": 390
+    },
+    "7": {
+      "test": 100,
+      "validation": 100,
+      "train": 469
+    },
+    "8": {
+      "test": 143,
+      "validation": 143,
+      "train": 670
+    },
+    "9": {
+      "test": 140,
+      "validation": 140,
+      "train": 652
+    },
+    "A": {
+      "test": 123,
+      "validation": 123,
+      "train": 576
+    },
+    "B": {
+      "test": 51,
+      "validation": 51,
+      "train": 235
+    },
+    "C": {
+      "test": 38,
+      "validation": 38,
+      "train": 176
+    },
+    "D": {
+      "test": 25,
+      "validation": 25,
+      "train": 116
+    },
+    "E": {
+      "test": 34,
+      "validation": 34,
+      "train": 159
+    },
+    "F": {
+      "test": 28,
+      "validation": 28,
+      "train": 132
+    },
+    "G": {
+      "test": 30,
+      "validation": 30,
+      "train": 139
+    },
+    "H": {
+      "test": 24,
+      "validation": 24,
+      "train": 112
+    },
+    "J": {
+      "test": 19,
+      "validation": 19,
+      "train": 88
+    },
+    "K": {
+      "test": 31,
+      "validation": 31,
+      "train": 147
+    },
+    "L": {
+      "test": 31,
+      "validation": 31,
+      "train": 146
+    },
+    "M": {
+      "test": 29,
+      "validation": 29,
+      "train": 137
+    },
+    "N": {
+      "test": 24,
+      "validation": 24,
+      "train": 114
+    },
+    "P": {
+      "test": 21,
+      "validation": 21,
+      "train": 98
+    },
+    "Q": {
+      "test": 14,
+      "validation": 14,
+      "train": 67
+    },
+    "R": {
+      "test": 20,
+      "validation": 20,
+      "train": 91
+    },
+    "S": {
+      "test": 20,
+      "validation": 20,
+      "train": 91
+    },
+    "T": {
+      "test": 15,
+      "validation": 15,
+      "train": 69
+    },
+    "U": {
+      "test": 12,
+      "validation": 12,
+      "train": 57
+    },
+    "V": {
+      "test": 9,
+      "validation": 9,
+      "train": 39
+    },
+    "W": {
+      "test": 10,
+      "validation": 10,
+      "train": 50
+    },
+    "X": {
+      "test": 12,
+      "validation": 12,
+      "train": 54
+    },
+    "Y": {
+      "test": 15,
+      "validation": 15,
+      "train": 73
+    },
+    "Z": {
+      "test": 11,
+      "validation": 11,
+      "train": 51
+    },
+    "川": {
+      "test": 18,
+      "validation": 18,
+      "train": 81
+    },
+    "鄂": {
+      "test": 10,
+      "validation": 10,
+      "train": 48
+    },
+    "赣": {
+      "test": 13,
+      "validation": 13,
+      "train": 58
+    },
+    "甘": {
+      "test": 8,
+      "validation": 8,
+      "train": 36
+    },
+    "贵": {
+      "test": 5,
+      "validation": 5,
+      "train": 25
+    },
+    "桂": {
+      "test": 5,
+      "validation": 5,
+      "train": 22
+    },
+    "黑": {
+      "test": 14,
+      "validation": 14,
+      "train": 67
+    },
+    "沪": {
+      "test": 26,
+      "validation": 26,
+      "train": 120
+    },
+    "冀": {
+      "test": 12,
+      "validation": 12,
+      "train": 56
+    },
+    "津": {
+      "test": 36,
+      "validation": 36,
+      "train": 168
+    },
+    "京": {
+      "test": 17,
+      "validation": 17,
+      "train": 78
+    },
+    "吉": {
+      "test": 8,
+      "validation": 8,
+      "train": 36
+    },
+    "辽": {
+      "test": 10,
+      "validation": 10,
+      "train": 48
+    },
+    "鲁": {
+      "test": 11,
+      "validation": 11,
+      "train": 49
+    },
+    "蒙": {
+      "test": 10,
+      "validation": 10,
+      "train": 46
+    },
+    "闽": {
+      "test": 7,
+      "validation": 7,
+      "train": 35
+    },
+    "宁": {
+      "test": 4,
+      "validation": 4,
+      "train": 21
+    },
+    "青": {
+      "test": 5,
+      "validation": 5,
+      "train": 21
+    },
+    "琼": {
+      "test": 5,
+      "validation": 5,
+      "train": 21
+    },
+    "陕": {
+      "test": 11,
+      "validation": 11,
+      "train": 50
+    },
+    "苏": {
+      "test": 24,
+      "validation": 24,
+      "train": 111
+    },
+    "晋": {
+      "test": 14,
+      "validation": 14,
+      "train": 63
+    },
+    "皖": {
+      "test": 27,
+      "validation": 27,
+      "train": 123
+    },
+    "湘": {
+      "test": 19,
+      "validation": 19,
+      "train": 89
+    },
+    "新": {
+      "test": 3,
+      "validation": 3,
+      "train": 13
+    },
+    "豫": {
+      "test": 21,
+      "validation": 21,
+      "train": 101
+    },
+    "渝": {
+      "test": 7,
+      "validation": 7,
+      "train": 31
+    },
+    "粤": {
+      "test": 21,
+      "validation": 21,
+      "train": 96
+    },
+    "云": {
+      "test": 5,
+      "validation": 5,
+      "train": 25
+    },
+    "藏": {
+      "test": 1,
+      "validation": 1,
+      "train": 4
+    },
+    "浙": {
+      "test": 33,
+      "validation": 33,
+      "train": 155
+    }
+  },
+  "excluded_counts": {
+    "duplicate_normalized_pixels": 3334,
+    "conflicting_labels": 15
+  },
+  "invalid_count": 0,
+  "deduplication": "32x32 normalized grayscale SHA256, before splitting",
+  "mapping_correction": "upstream zh_qing uses 靑; this module emits 青",
+  "limitation": "within-source stratified split; near-duplicates and common original plates cannot be ruled out"
+}

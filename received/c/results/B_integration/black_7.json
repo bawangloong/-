@@ -1,0 +1,287 @@
+{
+  "color": {
+    "color": "black",
+    "label": "黑牌",
+    "confidence": 1.0,
+    "detail": {
+      "hist": {
+        "blue": 0.0,
+        "yellow": 0.0,
+        "green": 0.0,
+        "white": 0.0,
+        "black": 0.0,
+        "unknown": 0.0
+      },
+      "sat_ratio": 0.0,
+      "median_v": 28.0
+    }
+  },
+  "segmentation": {
+    "count": 7,
+    "status": "ok",
+    "boxes": [
+      [
+        32,
+        33,
+        73,
+        74
+      ],
+      [
+        115,
+        38,
+        30,
+        58
+      ],
+      [
+        169,
+        38,
+        50,
+        58
+      ],
+      [
+        229,
+        37,
+        21,
+        59
+      ],
+      [
+        274,
+        38,
+        36,
+        58
+      ],
+      [
+        318,
+        37,
+        37,
+        59
+      ],
+      [
+        363,
+        37,
+        43,
+        60
+      ]
+    ],
+    "box_coordinates": "B stage norm image (height 140), not original image coordinates"
+  },
+  "recognition": {
+    "text": "浙FA1B2C",
+    "character_count": 7,
+    "layout": "standard",
+    "characters": [
+      {
+        "position": 0,
+        "label": "浙",
+        "similarity": 0.9908555746078491,
+        "margin": 0.1429903507232666,
+        "status": "ok",
+        "message": "",
+        "candidates": [
+          {
+            "label": "浙",
+            "similarity": 0.9908555746078491,
+            "sample_index": 9511,
+            "sample_path": "zh_zhe/font_msyh_48.png"
+          },
+          {
+            "label": "新",
+            "similarity": 0.8478652238845825,
+            "sample_index": 9068,
+            "sample_path": "zh_xin/font_simhei_80.png"
+          },
+          {
+            "label": "湘",
+            "similarity": 0.7983093857765198,
+            "sample_index": 9045,
+            "sample_path": "zh_xiang/font_msyh_64.png"
+          }
+        ]
+      },
+      {
+        "position": 1,
+        "label": "F",
+        "similarity": 0.9923169612884521,
+        "margin": 0.07206439971923828,
+        "status": "ok",
+        "message": "",
+        "candidates": [
+          {
+            "label": "F",
+            "similarity": 0.9923169612884521,
+            "sample_index": 5702,
+            "sample_path": "F/font_msyh_80.png"
+          },
+          {
+            "label": "E",
+            "similarity": 0.9202525615692139,
+            "sample_index": 5564,
+            "sample_path": "E/font_msyh_80.png"
+          },
+          {
+            "label": "P",
+            "similarity": 0.888634204864502,
+            "sample_index": 6697,
+            "sample_path": "P/aeb9974eaf37b6dfe9c8.jpg"
+          }
+        ]
+      },
+      {
+        "position": 2,
+        "label": "A",
+        "similarity": 0.9836206436157227,
+        "margin": 0.21230864524841309,
+        "status": "ok",
+        "message": "",
+        "candidates": [
+          {
+            "label": "A",
+            "similarity": 0.9836206436157227,
+            "sample_index": 4852,
+            "sample_path": "A/font_msyh_48.png"
+          },
+          {
+            "label": "4",
+            "similarity": 0.7713119983673096,
+            "sample_index": 1431,
+            "sample_path": "4/b885aa7d4fb600e2f8c2.jpg"
+          },
+          {
+            "label": "Q",
+            "similarity": 0.7231804132461548,
+            "sample_index": 6747,
+            "sample_path": "Q/4ada95ce518680891402.jpg"
+          }
+        ]
+      },
+      {
+        "position": 3,
+        "label": "1",
+        "similarity": 0.9833556413650513,
+        "margin": 0.18042391538619995,
+        "status": "ok",
+        "message": "",
+        "candidates": [
+          {
+            "label": "1",
+            "similarity": 0.9833556413650513,
+            "sample_index": 646,
+            "sample_path": "1/font_msyh_48.png"
+          },
+          {
+            "label": "7",
+            "similarity": 0.8029317259788513,
+            "sample_index": 2758,
+            "sample_path": "7/a60551b3717d6470dfc3.jpg"
+          },
+          {
+            "label": "T",
+            "similarity": 0.7747399806976318,
+            "sample_index": 7008,
+            "sample_path": "T/2daedafe27ac8b05623f.jpg"
+          }
+        ]
+      },
+      {
+        "position": 4,
+        "label": "B",
+        "similarity": 0.984613299369812,
+        "margin": 0.07475733757019043,
+        "status": "ok",
+        "message": "",
+        "candidates": [
+          {
+            "label": "B",
+            "similarity": 0.984613299369812,
+            "sample_index": 5095,
+            "sample_path": "B/font_msyh_80.png"
+          },
+          {
+            "label": "8",
+            "similarity": 0.9098559617996216,
+            "sample_index": 3294,
+            "sample_path": "8/85401572e7883c93fc1e.jpg"
+          },
+          {
+            "label": "H",
+            "similarity": 0.8529828786849976,
+            "sample_index": 5921,
+            "sample_path": "H/9389cd25c4fceea0a4e3.jpg"
+          }
+        ]
+      },
+      {
+        "position": 5,
+        "label": "2",
+        "similarity": 0.9737120866775513,
+        "margin": 0.1741977334022522,
+        "status": "ok",
+        "message": "",
+        "candidates": [
+          {
+            "label": "2",
+            "similarity": 0.9737120866775513,
+            "sample_index": 955,
+            "sample_path": "2/font_msyh_80.png"
+          },
+          {
+            "label": "Z",
+            "similarity": 0.7995143532752991,
+            "sample_index": 7404,
+            "sample_path": "Z/b241da7ecde68d6874f6.jpg"
+          },
+          {
+            "label": "P",
+            "similarity": 0.7149614095687866,
+            "sample_index": 6731,
+            "sample_path": "P/font_simhei_64.png"
+          }
+        ]
+      },
+      {
+        "position": 6,
+        "label": "C",
+        "similarity": 0.985485315322876,
+        "margin": 0.18687927722930908,
+        "status": "ok",
+        "message": "",
+        "candidates": [
+          {
+            "label": "C",
+            "similarity": 0.985485315322876,
+            "sample_index": 5277,
+            "sample_path": "C/font_msyh_80.png"
+          },
+          {
+            "label": "G",
+            "similarity": 0.7986060380935669,
+            "sample_index": 5846,
+            "sample_path": "G/font_msyh_64.png"
+          },
+          {
+            "label": "0",
+            "similarity": 0.719334602355957,
+            "sample_index": 306,
+            "sample_path": "0/c1b4d5f8c6a51f6fdda9.jpg"
+          }
+        ]
+      }
+    ],
+    "warnings": [
+      "位置约束仅覆盖常见民用 7/8 位结构，不验证全部号牌规则"
+    ],
+    "score_definition": "cosine of combined unit features = 0.55*HOG_cosine + 0.45*pixel_cosine; not a correctness probability",
+    "status": "ok",
+    "segmentation_status": "ok"
+  },
+  "source": "black_7.png",
+  "evaluation_only": {
+    "truth": "浙FA1B2C",
+    "source": "B make_test_plates.py SPECS (synthetic)",
+    "exact_match": true
+  },
+  "archived_slice_comparison": {
+    "same_count": true,
+    "all_pixels_equal": true
+  }
+}

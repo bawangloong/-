@@ -1,0 +1,196 @@
+{
+  "01_normal_blue.jpg": {
+    "plates": [
+      {
+        "bbox": [
+          280,
+          350,
+          440,
+          140
+        ],
+        "text": "京A12345",
+        "color": "blue"
+      }
+    ]
+  },
+  "02_tilt_pos12.jpg": {
+    "plates": [
+      {
+        "bbox": [
+          270,
+          285,
+          459,
+          228
+        ],
+        "text": "沪B67890",
+        "color": "blue"
+      }
+    ]
+  },
+  "03_tilt_neg9.jpg": {
+    "plates": [
+      {
+        "bbox": [
+          291,
+          276,
+          456,
+          207
+        ],
+        "text": "浙C24680",
+        "color": "blue"
+      }
+    ]
+  },
+  "04_yellow.jpg": {
+    "plates": [
+      {
+        "bbox": [
+          260,
+          360,
+          440,
+          140
+        ],
+        "text": "苏D13579",
+        "color": "yellow"
+      }
+    ]
+  },
+  "05_green_8char.jpg": {
+    "plates": [
+      {
+        "bbox": [
+          260,
+          350,
+          480,
+          140
+        ],
+        "text": "粤BD12345",
+        "color": "green"
+      }
+    ]
+  },
+  "06_white_police.jpg": {
+    "plates": [
+      {
+        "bbox": [
+          280,
+          350,
+          440,
+          140
+        ],
+        "text": "京A1234警",
+        "color": "white"
+      }
+    ]
+  },
+  "07_multi_3plates.jpg": {
+    "plates": [
+      {
+        "bbox": [
+          170,
+          442,
+          360,
+          115
+        ],
+        "text": "京A11111",
+        "color": "blue"
+      },
+      {
+        "bbox": [
+          724,
+          272,
+          351,
+          154
+        ],
+        "text": "沪C22222",
+        "color": "yellow"
+      },
+      {
+        "bbox": [
+          855,
+          624,
+          389,
+          150
+        ],
+        "text": "粤BF33333",
+        "color": "green"
+      }
+    ]
+  },
+  "08_small_plate.jpg": {
+    "plates": [
+      {
+        "bbox": [
+          1145,
+          582,
+          110,
+          35
+        ],
+        "text": "川A55555",
+        "color": "blue"
+      }
+    ]
+  },
+  "09_blur.jpg": {
+    "plates": [
+      {
+        "bbox": [
+          280,
+          350,
+          440,
+          140
+        ],
+        "text": "鲁B66666",
+        "color": "blue"
+      }
+    ]
+  },
+  "10_dark.jpg": {
+    "plates": [
+      {
+        "bbox": [
+          280,
+          350,
+          440,
+          140
+        ],
+        "text": "闽C77777",
+        "color": "blue"
+      }
+    ]
+  },
+  "11_distractor.jpg": {
+    "plates": [
+      {
+        "bbox": [
+          480,
+          480,
+          440,
+          140
+        ],
+        "text": "冀D88888",
+        "color": "blue"
+      }
+    ]
+  },
+  "12_no_plate.jpg": {
+    "plates": []
+  },
+  "13_no_plate_text.jpg": {
+    "plates": []
+  },
+  "14_tilt30.jpg": {
+    "plates": [
+      {
+        "bbox": [
+          274,
+          229,
+          451,
+          341
+        ],
+        "text": "豫E99999",
+        "color": "blue"
+      }
+    ]
+  }
+}

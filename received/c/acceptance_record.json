@@ -1,0 +1,49 @@
+{
+  "checked_at_utc": "2026-11-16T10:34:52.535534+00:00",
+  "working_copy": "D:\\课程文件\\视频多媒体检索实践\\.plate-c-build\\verification\\plate_char_C",
+  "python": "3.13.7",
+  "checks": {
+    "payload_hashes": {
+      "passed": true,
+      "files": 13685,
+      "note": "manifest excludes itself, acceptance_record.json and Python caches"
+    },
+    "behavior_tests": {
+      "passed": true,
+      "log": "test_all_delivered_data_hashes_and_split_isolation (test_c_module.CharacterModuleTests.test_all_delivered_data_hashes_and_split_isolation) ... ok\ntest_b_delivery_pixel_reproduction_and_abnormal_count (test_c_module.CharacterModuleTests.test_b_delivery_pixel_reproduction_and_abnormal_count) ... ok\ntest_bad_char_preserves_position (test_c_module.CharacterModuleTests.test_bad_char_preserves_position) ... ok\ntest_cli_failure_exit_and_json (test_c_module.CharacterModuleTests.test_cli_failure_exit_and_json) ... ok\ntest_exact_sample_and_distinct_top3 (test_c_module.CharacterModuleTests.test_exact_sample_and_distinct_top3) ... ok\ntest_immutable_inputs_and_repeatable_results (test_c_module.CharacterModuleTests.test_immutable_inputs_and_repeatable_results) ... ok\ntest_inverse_polarity (test_c_module.CharacterModuleTests.test_inverse_polarity) ... ok\ntest_library_coverage_dimensions_and_unit_vectors (test_c_module.CharacterModuleTests.test_library_coverage_dimensions_and_unit_vectors) ... ok\ntest_natural_filename_order (test_c_module.CharacterModuleTests.test_natural_filename_order) ... ok\ntest_no_chars_invalid_length_and_unrestricted (test_c_module.CharacterModuleTests.test_no_chars_invalid_length_and_unrestricted) ... ok\ntest_rank_matches_independent_float64_euclidean_distances (test_c_module.CharacterModuleTests.test_rank_matches_independent_float64_euclidean_distances) ... ok\ntest_rebuild_deduplication_and_conflict_detection (test_c_module.CharacterModuleTests.test_rebuild_deduplication_and_conflict_detection) ... ok\ntest_reject_invalid_inputs_without_crashing (test_c_module.CharacterModuleTests.test_reject_invalid_inputs_without_crashing) ... ok\ntest_review_and_argument_errors (test_c_module.CharacterModuleTests.test_review_and_argument_errors) ... ok\ntest_seven_and_eight_character_api (test_c_module.CharacterModuleTests.test_seven_and_eight_character_api) ... ok\ntest_supported_array_formats (test_c_module.CharacterModuleTests.test_supported_array_formats) ... ok\ntest_unicode_image_path (test_c_module.CharacterModuleTests.test_unicode_image_path) ... ok\n\n----------------------------------------------------------------------\nRan 17 tests in 11.796s\n\nOK\n"
+    },
+    "rebuilt_library_arrays": {
+      "passed": true,
+      "comparison": "every saved array exactly equal, including metadata"
+    },
+    "test_metrics_reproduced": {
+      "passed": true,
+      "count": 1958,
+      "top1_accuracy": 0.9744637385086823,
+      "note": "timing and machine-dependent environment excluded"
+    },
+    "b_integration_reproduced": {
+      "passed": true,
+      "images": 6,
+      "exact_matches": 5,
+      "abnormal_segmentation": 1
+    },
+    "cli_7_and_8": {
+      "passed": true,
+      "results": [
+        {
+          "sample": "blue_7",
+          "text": "京A12345",
+          "exit_code": 0
+        },
+        {
+          "sample": "green_8",
+          "text": "粤CD12345",
+          "exit_code": 0
+        }
+      ]
+    }
+  },
+  "payload_manifest_sha256": "e5d16734a4c99f8f17760d037a2b5904a57e740426ba1adad0235f6e3596ad5d",
+  "all_checks_passed": true
+}

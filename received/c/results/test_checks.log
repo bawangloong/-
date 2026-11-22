@@ -1,0 +1,22 @@
+test_all_delivered_data_hashes_and_split_isolation (test_c_module.CharacterModuleTests.test_all_delivered_data_hashes_and_split_isolation) ... ok
+test_b_delivery_pixel_reproduction_and_abnormal_count (test_c_module.CharacterModuleTests.test_b_delivery_pixel_reproduction_and_abnormal_count) ... ok
+test_bad_char_preserves_position (test_c_module.CharacterModuleTests.test_bad_char_preserves_position) ... ok
+test_cli_failure_exit_and_json (test_c_module.CharacterModuleTests.test_cli_failure_exit_and_json) ... ok
+test_exact_sample_and_distinct_top3 (test_c_module.CharacterModuleTests.test_exact_sample_and_distinct_top3) ... ok
+test_immutable_inputs_and_repeatable_results (test_c_module.CharacterModuleTests.test_immutable_inputs_and_repeatable_results) ... ok
+test_inverse_polarity (test_c_module.CharacterModuleTests.test_inverse_polarity) ... ok
+test_library_coverage_dimensions_and_unit_vectors (test_c_module.CharacterModuleTests.test_library_coverage_dimensions_and_unit_vectors) ... ok
+test_natural_filename_order (test_c_module.CharacterModuleTests.test_natural_filename_order) ... ok
+test_no_chars_invalid_length_and_unrestricted (test_c_module.CharacterModuleTests.test_no_chars_invalid_length_and_unrestricted) ... ok
+test_rank_matches_independent_float64_euclidean_distances (test_c_module.CharacterModuleTests.test_rank_matches_independent_float64_euclidean_distances) ... ok
+test_rebuild_deduplication_and_conflict_detection (test_c_module.CharacterModuleTests.test_rebuild_deduplication_and_conflict_detection) ... ok
+test_reject_invalid_inputs_without_crashing (test_c_module.CharacterModuleTests.test_reject_invalid_inputs_without_crashing) ... ok
+test_review_and_argument_errors (test_c_module.CharacterModuleTests.test_review_and_argument_errors) ... ok
+test_seven_and_eight_character_api (test_c_module.CharacterModuleTests.test_seven_and_eight_character_api) ... ok
+test_supported_array_formats (test_c_module.CharacterModuleTests.test_supported_array_formats) ... ok
+test_unicode_image_path (test_c_module.CharacterModuleTests.test_unicode_image_path) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 10.329s
+
+OK

@@ -1,6 +1,6 @@
 # 角色 E 交接清单
 
-仓库里现在有数据约定、评测入口、这份清单，以及 B 同学交来的颜色和分割代码（在 `received/b/`）。测试表、大作业报告、讲解幻灯片、5 分钟以内的视频和最终 ZIP 都还不能做。没拿到的部分不要填实测数字。
+仓库里现在有数据约定、评测入口、这份清单，以及 A、B、C、D 交来的代码，分别在 `received/a/`、`received/b/`、`received/c/`、`received/d/`。测试表、大作业报告、讲解幻灯片、5 分钟以内的视频和最终 ZIP 都还不能做。各组自己文档里的数字不要抄进课程测试表。
 
 作业要求来自课程大作业：检测是否有车牌、定位并给出车牌图、分割后与字符库匹配、输出颜色和字符数及识别结果，并准备 GUI、exe、报告、视频和一份小组 ZIP。视频要讲原理、运行逻辑、实际演示和异常处理，时长不超过 5 分钟。报告要写小组分工。
 
@@ -10,17 +10,20 @@
 - `data/check_dataset.py`：字段、划分泄漏、完全重复和近似重复。
 - `eval/evaluate.py`：流水线不在时明确退出；合成夹具只验证指标算术。
 - 指标口径：`eval/README.md`。
-- B 的颜色识别和字符分割：`received/b/`。说明见 `received/b/INTAKE.md`。这是裁好的单块车牌上的模块，不是整条流水线。他们附带的 6 张合成牌自测不能写入课程测试表。
+- A 的检测和矫正：`received/a/`。说明见 `received/a/INTAKE.md`。
+- B 的颜色识别和字符分割：`received/b/`。说明见 `received/b/INTAKE.md`。
+- C 的字符库和识别：`received/c/`。说明见 `received/c/INTAKE.md`。
+- D 的界面和流水线：`received/d/`。说明见 `received/d/INTAKE.md`。Windows 运行时因为单文件超过 GitHub 限制，没有放进仓库。
 
 ## 测试表之前
 
-测试表指 validation / final_test 上的定位、颜色、字数、逐字、整牌和耗时。现在一张正式图都没有，流水线也没有，所以没有表。
+测试表指 validation / final_test 上的定位、颜色、字数、逐字、整牌和耗时。正式清单还是空的，D 的结果字段也还没接到 `evaluate.py`，所以没有表。
 
-角色 A：
+角色 A：代码已经在 `received/a/`。评测接入时还要遵守这些点：
 
-- `detect_plate.py` 能对一张图给出车牌框，坐标在原图上；没有车牌时返回空列表。
-- `rectify_plate.py` 给出摆正的车牌图，并保留这些图对应哪一个原图框。
-- 说明无牌、多牌、倾斜时的行为，以及框空着或图像极小、极大时会怎样。
+- `detect_plates(bgr)` 返回 `PlateRegion` 列表，没有车牌时是空列表。`bbox` 是原图 `(x, y, w, h)`。
+- `rectify_plates` 给出摆正的 BGR 图和 `transform`。交给 B 之前要转成 RGB。
+- `color_hint` 不是最终颜色。
 
 角色 B：代码已经在 `received/b/`。D 接入时还要遵守这些点：
 
@@ -30,20 +33,18 @@
 - `boxes` 在高度 140 像素的归一化图上，不能当作原图定位框。
 - 字符图是 40×20、白笔画黑背景、从左到右，给 C 用。
 
-角色 C：压缩包还没交到这台环境。本机路径是 `C:\Users\Lenovo\xwechat_files\wxid_ourne1iv8na921_f840\msg\file\2026-11\plate_char_C(1).zip`，需要用和 B 一样的方式上传。拿到之后还要核对：
+角色 C：代码已经在 `received/c/`。
 
-- `character_library/`、`build_library.py`、`recognize_chars.py`。
-- 每个字符有结果和分数，并给出整牌字符串。
-- 建库只用 `data/raw/library/` 和清单里的 `library`。不用 validation，不用 final_test，也不要把库里的图复制进终测。
-- 字符图尺寸要和 B 的 40×20、白笔画黑背景一致。
-- 说明字库覆盖了哪些汉字、字母和数字，包括新能源牌多出来的那一位。
+- `CharacterRecognizer.recognize_chars` 吃有序字符图，返回 `text`、`status` 和每个字的 `label`、`similarity`。
+- 65 类，没有学、警、港、澳等特殊字。
+- 包内训练图和 `evaluation_data` 是 C 自己的划分，还没有并进 `data/splits/manifest.json`。正式建库仍然不能使用终测图。
 
-角色 D：
+角色 D：代码已经在 `received/d/`。和评测入口还差一层：
 
-- 仓库根目录的 `pipeline.py`，含 `run(image_path)`，返回值按 `eval/README.md`。
-- 顺序是检测、校正、颜色、分割、识别。
-- 一张图有多块牌时全部返回；没有牌时 `plates` 为空列表。
-- 框仍然是原图坐标。校正图可以另附路径，但不能只返回小图里的框。
+- 调用的是 `PlatePipeline.recognize_file`，不是仓库根目录 `pipeline.py` 的 `run(image_path)`。
+- 号码在 `text`，颜色在 `color["color"]`，字数在 `segmentation.count`，框是 `bbox` 列表。`evaluate.py` 仍按 `number`、字符串 `color`、`char_count` 和 `{x,y,w,h}` 读。
+- 没有把 A 放进 `vendor/a_plate/`，检测目前用 D 自带的兜底实现。
+- 可双击的完整 exe 包在发布页 zip 里；本仓库没有放 Windows `runtime/`。
 
 角色 E 自己还要补上，才能出表：
 
