@@ -185,16 +185,41 @@
           }
         ]
       }
+    },
+    {
+      "image_id": "syn_i_system_shape",
+      "note": "提交仓库的字段：bbox 列表、color.color、segmentation.count、text。应收成与 syn_c 相同的一次命中。不是系统实测。",
+      "gt": {
+        "has_plate": true,
+        "plates": [
+          {
+            "box": {"x": 10, "y": 20, "w": 100, "h": 40},
+            "number": "京A12345",
+            "color": "blue",
+            "char_count": 7
+          }
+        ]
+      },
+      "pred": {
+        "plates": [
+          {
+            "bbox": [10, 20, 100, 40],
+            "text": "京A12345",
+            "color": {"color": "blue", "label": "蓝牌", "confidence": 1.0},
+            "segmentation": {"count": 7, "status": "ok", "boxes": [[1, 2, 3, 4]]}
+          }
+        ]
+      }
     }
   ],
   "expected": {
-    "plate_presence": {"correct": 7, "total": 8},
-    "localization": {"tp": 6, "fp": 3, "fn": 1},
-    "color": {"correct": 3, "total": 6},
-    "char_count": {"correct": 5, "total": 6},
-    "character_on_hits": {"correct": 40, "total": 42},
-    "character_end_to_end": {"correct": 40, "total": 49},
-    "full_plate_on_hits": {"correct": 4, "total": 6},
-    "full_plate_end_to_end": {"correct": 4, "total": 7}
+    "plate_presence": {"correct": 8, "total": 9},
+    "localization": {"tp": 7, "fp": 3, "fn": 1},
+    "color": {"correct": 4, "total": 7},
+    "char_count": {"correct": 6, "total": 7},
+    "character_on_hits": {"correct": 47, "total": 49},
+    "character_end_to_end": {"correct": 47, "total": 56},
+    "full_plate_on_hits": {"correct": 5, "total": 7},
+    "full_plate_end_to_end": {"correct": 5, "total": 8}
   }
 }

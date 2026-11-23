@@ -39,12 +39,11 @@
 - 65 类，没有学、警、港、澳等特殊字。
 - 包内训练图和 `evaluation_data` 是 C 自己的划分，还没有并进 `data/splits/manifest.json`。正式建库仍然不能使用终测图。
 
-角色 D：代码已经在 `received/d/`。和评测入口还差一层：
+角色 D：https://github.com/bawangloong/plate-recognition-submit 的 main 上已有根目录 `pipeline.run(image_path)`。本仓库根目录没有这份文件，不带 `--pipeline` 时仍报 `pipeline missing`。
 
-- 调用的是 `PlatePipeline.recognize_file`，不是仓库根目录 `pipeline.py` 的 `run(image_path)`。
-- 号码在 `text`，颜色在 `color["color"]`，字数在 `segmentation.count`，框是 `bbox` 列表。`evaluate.py` 仍按 `number`、字符串 `color`、`char_count` 和 `{x,y,w,h}` 读。
-- 没有把 A 放进 `vendor/a_plate/`，检测目前用 D 自带的兜底实现。
-- 可双击的完整 exe 包在发布页 zip 里；本仓库没有放 Windows `runtime/`。
+- 空的 `plates` 表示没有车牌。
+- `evaluate.py` 把 `bbox`（长度为 4 的列表，或 `{x,y,w,h}`）收成 `box`，把 `color.color` 收成颜色字符串，把 `segmentation.count` 收成 `char_count`，把 `text` 收成 `number`。旧字段同时存在时优先用旧字段。
+- `received/d/` 仍是当时收下的副本。那里没有把 A 放进 `vendor/a_plate/`。Windows `runtime/` 不在本仓库。
 
 角色 E 自己还要补上，才能出表：
 

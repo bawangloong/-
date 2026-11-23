@@ -24,7 +24,23 @@ python eval/evaluate.py --manifest data/splits/manifest.json --splits validation
 
 ## 流水线要返回什么
 
-`pipeline.py` 提供：
+`pipeline.py` 提供 `run(image_path)`。也可以直接返回 `plates` 列表。没有车牌时 `plates` 为空列表。
+
+指标内部仍使用原来的字段：`box` 是 `{x, y, w, h}`，`color` 是字符串，`char_count` 是整数，整牌字符串是 `number`。脚本在计分前把提交仓库的字段收成这组名字。同一块牌上两种字段都有时，旧字段优先。
+
+| 指标用的字段 | 提交仓库 `pipeline.run` 的字段 |
+| --- | --- |
+| `box`：`{x, y, w, h}` | `bbox`。可以是 `[x, y, w, h]`，也可以是已经收好的 `{x, y, w, h}` |
+| `color`：闭集里的字符串 | `color.color`。`color` 本身已经是字符串时照原样用 |
+| `char_count` | `segmentation.count`。0 也算写了字数 |
+| `number` | `text` |
+| 没有车牌 | `plates` 为空列表 |
+
+`result_to_json` 会去掉图像数组。如果 `chars` 里不是字符串，脚本丢弃这个字段，改用号码拆字，不会把图像当成字符。
+
+提交仓库当前的根目录 `run` 会先把 `bbox` 列表收成字典再返回。两种都能读。本仓库根目录没有这份 `pipeline.py`；要用 `--pipeline` 指向它。
+
+旧形状仍然有效：
 
 ```python
 def run(image_path: str) -> dict:
@@ -41,15 +57,13 @@ def run(image_path: str) -> dict:
     }
 ```
 
-也可以直接返回 `plates` 列表。没有车牌时返回 `{"plates": []}`。
+`box` 和 `bbox` 都是原图像素坐标，不是校正后小图里的坐标。一张图可以有多块牌，顺序无所谓，配对按框而不是按下标。
 
-`box` 是原图像素坐标，不是校正后小图里的坐标。一张图可以有多块牌，顺序无所谓，配对按框而不是按下标。
-
-`color` 用颜色闭集或别名。看不清必须显式给 `unknown` 或「未知」。不写这个字段不算未知。
+`color` 用颜色闭集或别名。看不清必须显式给 `unknown` 或「未知」。不写这个字段，或颜色字典里没有 `color`，都不算未知。
 
 `char_count` 是分割得到的字符数。写了就按这个数评分，脚本不会用号码长度把它改掉。
 
-`chars` 是从左到右的字符。有这个字段就用它算逐字准确率；没有就拆 `number`。整牌字符串优先用 `number`。`char_scores` 和 `score` 可以带上，当前指标不用阈值卡它们。
+`chars` 是从左到右的字符串。有这个字段就用它算逐字准确率；没有就拆 `number`。整牌字符串优先用 `number`，没有 `number` 才用 `text`。`char_scores` 和 `score` 可以带上，当前指标不用阈值卡它们。
 
 ## 定位
 

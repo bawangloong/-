@@ -19,6 +19,7 @@ from metrics import (
     canon_color,
     iou,
     median,
+    parse_box,
     percentile_nearest_rank,
     public_report,
     score_images,
@@ -116,12 +117,64 @@ def load_pipeline(path: Path):
     return run
 
 
+def _plain_number(value):
+    number = float(value)
+    if number.is_integer():
+        return int(number)
+    return number
+
+
+def _box_record(value) -> dict:
+    x, y, w, h = parse_box(value)
+    return {"x": _plain_number(x), "y": _plain_number(y), "w": _plain_number(w), "h": _plain_number(h)}
+
+
+def _color_string(value):
+    """颜色收成字符串。字典只取 color 键，不把缺字段写成 unknown。"""
+    if isinstance(value, dict):
+        return value.get("color")
+    return value
+
+
+def _stated_char_count(plate: dict):
+    if "char_count" in plate and plate["char_count"] is not None:
+        return int(plate["char_count"])
+    segmentation = plate.get("segmentation")
+    if isinstance(segmentation, dict) and segmentation.get("count") is not None:
+        return int(segmentation["count"])
+    return None
+
+
+def normalize_plate(plate: dict) -> dict:
+    """把提交仓库的一块牌收成指标用的字段。已有的旧字段保持优先。"""
+    if not isinstance(plate, dict):
+        raise ValueError("每块车牌必须是对象")
+    out = dict(plate)
+    if plate.get("box") is not None:
+        out["box"] = _box_record(plate["box"])
+    elif plate.get("bbox") is not None:
+        out["box"] = _box_record(plate["bbox"])
+    if "color" in plate:
+        out["color"] = _color_string(plate["color"])
+    count = _stated_char_count(plate)
+    if count is not None:
+        out["char_count"] = count
+    if "number" not in plate and "text" in plate:
+        out["number"] = plate.get("text")
+    chars = plate.get("chars")
+    if isinstance(chars, list) and any(not isinstance(item, str) for item in chars):
+        out.pop("chars", None)
+    return out
+
+
 def coerce_prediction(result) -> dict:
     if isinstance(result, list):
-        return {"plates": result}
-    if isinstance(result, dict) and isinstance(result.get("plates"), list):
-        return result
-    raise ValueError("pipeline.run 必须返回 {'plates': [...]}，或直接返回车牌列表")
+        result = {"plates": result}
+    if not isinstance(result, dict) or not isinstance(result.get("plates"), list):
+        raise ValueError("pipeline.run 必须返回 {'plates': [...]}，或直接返回车牌列表")
+    out = dict(result)
+    out["plates"] = [normalize_plate(plate) for plate in result["plates"]]
+    return out
 
 
 def check_timer_helpers() -> None:
@@ -135,6 +188,61 @@ def check_timer_helpers() -> None:
         raise SystemExit("IoU 0.25 的手算对照失败")
     if canon_color("绿牌（新能源）") != "green":
         raise SystemExit("B 模块的绿色中文名没有映射到 green")
+    system = coerce_prediction(
+        {
+            "plates": [
+                {
+                    "bbox": [10, 20, 30, 40],
+                    "text": "京A12345",
+                    "color": {"color": "blue", "label": "蓝牌"},
+                    "segmentation": {"count": 7, "status": "ok"},
+                    "chars": [[[0, 0]]],
+                }
+            ]
+        }
+    )["plates"][0]
+    if system["box"] != {"x": 10, "y": 20, "w": 30, "h": 40}:
+        raise SystemExit("bbox 列表没有收成 {x, y, w, h}")
+    if system["color"] != "blue" or system["char_count"] != 7 or system["number"] != "京A12345":
+        raise SystemExit("提交仓库的颜色、字数或号码没有收成指标字段")
+    if "chars" in system:
+        raise SystemExit("非字符串的 chars 仍被当成字符序列")
+    aligned = coerce_prediction(
+        {
+            "plates": [
+                {
+                    "bbox": {"x": 1, "y": 2, "w": 3, "h": 4},
+                    "text": "粤B88888",
+                    "color": {"color": "yellow"},
+                    "segmentation": {"count": 0},
+                }
+            ]
+        }
+    )["plates"][0]
+    if aligned["box"] != {"x": 1, "y": 2, "w": 3, "h": 4} or aligned["char_count"] != 0:
+        raise SystemExit("已经收成字典的 bbox，或字数为 0，没有按原值保留")
+    old = coerce_prediction(
+        {
+            "plates": [
+                {
+                    "box": {"x": 0, "y": 0, "w": 8, "h": 4},
+                    "bbox": [9, 9, 9, 9],
+                    "number": "京A1",
+                    "text": "沪B2",
+                    "color": "blue",
+                    "char_count": 4,
+                    "segmentation": {"count": 8},
+                    "chars": ["京", "A", "1"],
+                }
+            ]
+        }
+    )["plates"][0]
+    if old["box"]["x"] != 0 or old["number"] != "京A1" or old["color"] != "blue":
+        raise SystemExit("旧字段没有优先于提交仓库的字段")
+    if old["char_count"] != 4 or old["chars"] != ["京", "A", "1"]:
+        raise SystemExit("旧的字数或字符序列被改写了")
+    if coerce_prediction({"plates": []})["plates"] != []:
+        raise SystemExit("空 plates 没有保持为空")
 
 
 def run_fixture(iou_threshold: float) -> int:
@@ -150,7 +258,7 @@ def run_fixture(iou_threshold: float) -> int:
     images = []
     for case in fixture["cases"]:
         started = time.perf_counter()
-        prediction = case["pred"]
+        prediction = coerce_prediction(case["pred"])
         elapsed = time.perf_counter() - started
         images.append(
             {

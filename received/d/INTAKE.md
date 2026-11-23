@@ -39,7 +39,7 @@ payload = result_to_json(result)           # 去掉 numpy 图像后再写 JSON
 
 流水线顺序是检测、矫正、颜色、分割、识别。检测优先用 `vendor/a_plate/`；这个目录目前没有 A 的代码，所以走 `app/detector.py` 里的内置检测。`vendor/b_plate/` 和 `vendor/c_char/` 是 D 随包放的 B、C 副本。D 的 README 写明 B 增加了可选参数 `min_char_width_ratio`，C 改了相对导入。E 没有再改这些文件。
 
-`evaluate.py` 仍要求仓库根目录的 `pipeline.py` 提供 `run(image_path)`，并返回 `{"plates": [...]}`，其中颜色是字符串、号码在 `number`、字数在 `char_count`。D 现在的结构和这个不一样，所以直接跑 `python eval/evaluate.py` 仍会报 `pipeline missing`。
+提交仓库 https://github.com/bawangloong/plate-recognition-submit 的 main 上，根目录 `pipeline.run(image_path)` 会调用这里的 `PlatePipeline`，再用 `result_to_json` 去掉图像数组。本仓库根目录还没有那个文件，所以直接跑 `python eval/evaluate.py` 仍会报 `pipeline missing`。字段对应关系写在 `eval/README.md`：`bbox` 收成 `box`，`color.color` 收成颜色字符串，`segmentation.count` 收成 `char_count`，`text` 收成 `number`。
 
 ## 和课程测试表的关系
 
