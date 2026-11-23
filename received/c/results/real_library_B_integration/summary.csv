@@ -1,0 +1,7 @@
+﻿file,truth,color,count,segmentation_status,prediction,status,exact_match,correct_characters
+black_7.png,浙FA1B2C,black,7,ok,浙FA7B20,needs_review,False,5
+blue_7.png,京A12345,blue,7,ok,黑A72345,needs_review,False,5
+blue_tilt.png,冀D97531,blue,5,count_abnormal,,invalid_length,False,
+green_8.png,粤CD12345,green,8,ok,蒙G072345,needs_review,False,4
+white_7.png,苏E66T78,white,7,ok,苏E66T78,needs_review,True,7
+yellow_7.png,沪B88888,yellow,7,ok,蒙B88888,needs_review,False,6

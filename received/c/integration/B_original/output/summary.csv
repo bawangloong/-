@@ -1,0 +1,7 @@
+﻿图片,颜色,置信度,字符数,状态,过程图
+black_7.png,黑牌,1.0,7,ok,output\black_7_panel.png
+blue_7.png,蓝牌,1.0,7,ok,output\blue_7_panel.png
+blue_tilt.png,蓝牌,1.0,5,count_abnormal,output\blue_tilt_panel.png
+green_8.png,绿牌（新能源）,1.0,8,ok,output\green_8_panel.png
+white_7.png,白牌,1.0,7,ok,output\white_7_panel.png
+yellow_7.png,黄牌,1.0,7,ok,output\yellow_7_panel.png

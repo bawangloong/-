@@ -1,0 +1,5 @@
+# A 模块依赖（B/C/D 全组统一基线，D 打包时以此为准）
+# Python >= 3.10
+opencv-python==4.11.0.86
+numpy>=1.26,<3
+Pillow>=10.0        # 仅 make_test_images.py 生成测试图用到，运行时可不装

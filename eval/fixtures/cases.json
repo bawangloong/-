@@ -1,0 +1,225 @@
+{
+  "description": "指标代码的合成对照答案。这些数字不是车牌系统的实测结果，不能写入测试表、报告或幻灯片。",
+  "iou_threshold": 0.5,
+  "cases": [
+    {
+      "image_id": "syn_a_absent_ok",
+      "note": "无车牌，预测也是空列表。",
+      "gt": {"has_plate": false, "plates": []},
+      "pred": {"plates": []}
+    },
+    {
+      "image_id": "syn_b_false_positive",
+      "note": "无车牌，多出一个框。",
+      "gt": {"has_plate": false, "plates": []},
+      "pred": {
+        "plates": [
+          {"box": {"x": 0, "y": 0, "w": 10, "h": 10}, "number": "京A00000", "color": "blue", "char_count": 7}
+        ]
+      }
+    },
+    {
+      "image_id": "syn_c_exact",
+      "note": "IoU=1。预测号码带间隔符，归一化后与标注相同。",
+      "gt": {
+        "has_plate": true,
+        "plates": [
+          {
+            "box": {"x": 0, "y": 0, "w": 100, "h": 50},
+            "number": "京A12345",
+            "color": "blue",
+            "char_count": 7
+          }
+        ]
+      },
+      "pred": {
+        "plates": [
+          {
+            "box": {"x": 0, "y": 0, "w": 100, "h": 50},
+            "number": "京A·12345",
+            "color": "blue",
+            "char_count": 7
+          }
+        ]
+      }
+    },
+    {
+      "image_id": "syn_d_half_iou",
+      "note": "IoU 正好 0.5，算定位命中。颜色错，末字错，字数对。",
+      "gt": {
+        "has_plate": true,
+        "plates": [
+          {
+            "box": {"x": 0, "y": 0, "w": 100, "h": 40},
+            "number": "粤B12345",
+            "color": "yellow",
+            "char_count": 7
+          }
+        ]
+      },
+      "pred": {
+        "plates": [
+          {
+            "box": {"x": 0, "y": 0, "w": 50, "h": 40},
+            "number": "粤B12346",
+            "color": "green",
+            "char_count": 7
+          }
+        ]
+      }
+    },
+    {
+      "image_id": "syn_e_two_plates",
+      "note": "两块牌都命中，另有一个多余框。第二块牌字数和末尾字符不对。",
+      "gt": {
+        "has_plate": true,
+        "plates": [
+          {
+            "box": {"x": 0, "y": 0, "w": 80, "h": 40},
+            "number": "沪C12345",
+            "color": "green",
+            "char_count": 7
+          },
+          {
+            "box": {"x": 0, "y": 80, "w": 80, "h": 40},
+            "number": "沪D12345",
+            "color": "white",
+            "char_count": 7
+          }
+        ]
+      },
+      "pred": {
+        "plates": [
+          {
+            "box": {"x": 0, "y": 0, "w": 80, "h": 40},
+            "number": "沪C12345",
+            "color": "绿",
+            "char_count": 7,
+            "chars": ["沪", "C", "1", "2", "3", "4", "5"]
+          },
+          {
+            "box": {"x": 0, "y": 80, "w": 40, "h": 40},
+            "number": "沪D1234",
+            "color": "black",
+            "char_count": 6
+          },
+          {
+            "box": {"x": 200, "y": 0, "w": 10, "h": 10},
+            "number": "京Z00000",
+            "color": "blue",
+            "char_count": 7
+          }
+        ]
+      }
+    },
+    {
+      "image_id": "syn_f_low_iou",
+      "note": "IoU=0.25，不算命中。文字即使相同也不计入命中口径，端到端算错。",
+      "gt": {
+        "has_plate": true,
+        "plates": [
+          {
+            "box": {"x": 10, "y": 10, "w": 100, "h": 40},
+            "number": "京E12345",
+            "color": "blue",
+            "char_count": 7
+          }
+        ]
+      },
+      "pred": {
+        "plates": [
+          {
+            "box": {"x": 10, "y": 10, "w": 100, "h": 10},
+            "number": "京E12345",
+            "color": "blue",
+            "char_count": 7
+          }
+        ]
+      }
+    },
+    {
+      "image_id": "syn_g_unknown_color",
+      "note": "标注和预测都显式未知，颜色算对。",
+      "gt": {
+        "has_plate": true,
+        "plates": [
+          {
+            "box": {"x": 0, "y": 0, "w": 90, "h": 30},
+            "number": "京F12345",
+            "color": "unknown",
+            "char_count": 7
+          }
+        ]
+      },
+      "pred": {
+        "plates": [
+          {
+            "box": {"x": 0, "y": 0, "w": 90, "h": 30},
+            "number": "京F12345",
+            "color": "未知",
+            "char_count": 7
+          }
+        ]
+      }
+    },
+    {
+      "image_id": "syn_h_missing_color",
+      "note": "预测没给颜色。缺字段不等于 unknown。小写拉丁字母归一化后整牌仍相同。",
+      "gt": {
+        "has_plate": true,
+        "plates": [
+          {
+            "box": {"x": 0, "y": 0, "w": 90, "h": 30},
+            "number": "苏A12345",
+            "color": "blue",
+            "char_count": 7
+          }
+        ]
+      },
+      "pred": {
+        "plates": [
+          {
+            "box": {"x": 0, "y": 0, "w": 90, "h": 30},
+            "number": "苏a12345",
+            "char_count": 7
+          }
+        ]
+      }
+    },
+    {
+      "image_id": "syn_i_system_shape",
+      "note": "提交仓库的字段：bbox 列表、color.color、segmentation.count、text。应收成与 syn_c 相同的一次命中。不是系统实测。",
+      "gt": {
+        "has_plate": true,
+        "plates": [
+          {
+            "box": {"x": 10, "y": 20, "w": 100, "h": 40},
+            "number": "京A12345",
+            "color": "blue",
+            "char_count": 7
+          }
+        ]
+      },
+      "pred": {
+        "plates": [
+          {
+            "bbox": [10, 20, 100, 40],
+            "text": "京A12345",
+            "color": {"color": "blue", "label": "蓝牌", "confidence": 1.0},
+            "segmentation": {"count": 7, "status": "ok", "boxes": [[1, 2, 3, 4]]}
+          }
+        ]
+      }
+    }
+  ],
+  "expected": {
+    "plate_presence": {"correct": 8, "total": 9},
+    "localization": {"tp": 7, "fp": 3, "fn": 1},
+    "color": {"correct": 4, "total": 7},
+    "char_count": {"correct": 6, "total": 7},
+    "character_on_hits": {"correct": 47, "total": 49},
+    "character_end_to_end": {"correct": 47, "total": 56},
+    "full_plate_on_hits": {"correct": 5, "total": 7},
+    "full_plate_end_to_end": {"correct": 5, "total": 8}
+  }
+}

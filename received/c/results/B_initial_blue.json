@@ -1,0 +1,217 @@
+{
+  "text": "蒙AM2345",
+  "character_count": 7,
+  "layout": "standard",
+  "characters": [
+    {
+      "position": 0,
+      "label": "蒙",
+      "similarity": 0.9211180210113525,
+      "margin": 0.014177322387695312,
+      "status": "needs_review",
+      "message": "匹配较弱或候选相近，建议复核",
+      "candidates": [
+        {
+          "label": "蒙",
+          "similarity": 0.9211180210113525,
+          "sample_index": 8149,
+          "sample_path": "zh_meng/71f91e8313ea5a380ec8.jpg"
+        },
+        {
+          "label": "青",
+          "similarity": 0.9069406986236572,
+          "sample_index": 8247,
+          "sample_path": "zh_qing/f2c1521b269b00c3951a.jpg"
+        },
+        {
+          "label": "黑",
+          "similarity": 0.8993436098098755,
+          "sample_index": 7562,
+          "sample_path": "zh_hei/e336c86f355d25b82194.jpg"
+        }
+      ]
+    },
+    {
+      "position": 1,
+      "label": "A",
+      "similarity": 0.9413855075836182,
+      "margin": 0.1377732753753662,
+      "status": "ok",
+      "message": "",
+      "candidates": [
+        {
+          "label": "A",
+          "similarity": 0.9413855075836182,
+          "sample_index": 4393,
+          "sample_path": "A/5351ac34ac15635228d2.jpg"
+        },
+        {
+          "label": "Q",
+          "similarity": 0.803612232208252,
+          "sample_index": 6605,
+          "sample_path": "Q/4ada95ce518680891402.jpg"
+        },
+        {
+          "label": "W",
+          "similarity": 0.8001896142959595,
+          "sample_index": 7034,
+          "sample_path": "W/88b49df2a2c98b1c0062.jpg"
+        }
+      ]
+    },
+    {
+      "position": 2,
+      "label": "M",
+      "similarity": 0.8831222057342529,
+      "margin": 0.026039838790893555,
+      "status": "ok",
+      "message": "",
+      "candidates": [
+        {
+          "label": "M",
+          "similarity": 0.8831222057342529,
+          "sample_index": 6263,
+          "sample_path": "M/2b3a1d6088692dc66f21.jpg"
+        },
+        {
+          "label": "1",
+          "similarity": 0.8570823669433594,
+          "sample_index": 492,
+          "sample_path": "1/5a01e63b8ce14fb9da2e.jpg"
+        },
+        {
+          "label": "T",
+          "similarity": 0.8535155057907104,
+          "sample_index": 6894,
+          "sample_path": "T/c262e0d8f45f5c1c6ee9.jpg"
+        }
+      ]
+    },
+    {
+      "position": 3,
+      "label": "2",
+      "similarity": 0.8764808177947998,
+      "margin": 0.04199182987213135,
+      "status": "ok",
+      "message": "",
+      "candidates": [
+        {
+          "label": "2",
+          "similarity": 0.8764808177947998,
+          "sample_index": 790,
+          "sample_path": "2/950739c352eb3c9b0bcf.jpg"
+        },
+        {
+          "label": "Z",
+          "similarity": 0.8344889879226685,
+          "sample_index": 7186,
+          "sample_path": "Z/1b26384b8cf9acf77fec.jpg"
+        },
+        {
+          "label": "P",
+          "similarity": 0.8069497346878052,
+          "sample_index": 6493,
+          "sample_path": "P/03d0611495ba08b41d3f.jpg"
+        }
+      ]
+    },
+    {
+      "position": 4,
+      "label": "3",
+      "similarity": 0.8936029076576233,
+      "margin": 0.01775825023651123,
+      "status": "needs_review",
+      "message": "匹配较弱或候选相近，建议复核",
+      "candidates": [
+        {
+          "label": "3",
+          "similarity": 0.8936029076576233,
+          "sample_index": 1181,
+          "sample_path": "3/c965cc2d8b9f6194c368.jpg"
+        },
+        {
+          "label": "B",
+          "similarity": 0.8758446574211121,
+          "sample_index": 4919,
+          "sample_path": "B/999b9527536e642f2b60.jpg"
+        },
+        {
+          "label": "S",
+          "similarity": 0.8612159490585327,
+          "sample_index": 6801,
+          "sample_path": "S/a6b4aa6c9cc25c9cd2e9.jpg"
+        }
+      ]
+    },
+    {
+      "position": 5,
+      "label": "4",
+      "similarity": 0.9170246124267578,
+      "margin": 0.058373212814331055,
+      "status": "ok",
+      "message": "",
+      "candidates": [
+        {
+          "label": "4",
+          "similarity": 0.9170246124267578,
+          "sample_index": 1448,
+          "sample_path": "4/e71452443ce0854a1e82.jpg"
+        },
+        {
+          "label": "6",
+          "similarity": 0.8586513996124268,
+          "sample_index": 2259,
+          "sample_path": "6/8c07b173035e98b14758.jpg"
+        },
+        {
+          "label": "A",
+          "similarity": 0.8527523279190063,
+          "sample_index": 4375,
+          "sample_path": "A/48041df25a57915a2536.jpg"
+        }
+      ]
+    },
+    {
+      "position": 6,
+      "label": "5",
+      "similarity": 0.8888278007507324,
+      "margin": 0.036978960037231445,
+      "status": "ok",
+      "message": "",
+      "candidates": [
+        {
+          "label": "5",
+          "similarity": 0.8888278007507324,
+          "sample_index": 1471,
+          "sample_path": "5/001d516d607135a83388.jpg"
+        },
+        {
+          "label": "S",
+          "similarity": 0.851848840713501,
+          "sample_index": 6829,
+          "sample_path": "S/d4db5e655d29596cd3e7.jpg"
+        },
+        {
+          "label": "6",
+          "similarity": 0.8389015197753906,
+          "sample_index": 2116,
+          "sample_path": "6/30ad246fcccc2fffb03b.jpg"
+        }
+      ]
+    }
+  ],
+  "warnings": [
+    "位置约束仅覆盖常见民用 7/8 位结构，不验证全部号牌规则"
+  ],
+  "score_definition": "cosine similarity, not a correctness probability",
+  "status": "needs_review",
+  "input_files": [
+    "char_01.png",
+    "char_02.png",
+    "char_03.png",
+    "char_04.png",
+    "char_05.png",
+    "char_06.png",
+    "char_07.png"
+  ]
+}

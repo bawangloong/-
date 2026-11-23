@@ -1,0 +1,75 @@
+{
+  "dataset": "B synthetic samples, not real-world plate benchmark",
+  "images": 6,
+  "truth_available": 6,
+  "exact_matches": 1,
+  "abnormal_segmentation": 1,
+  "rows": [
+    {
+      "file": "black_7.png",
+      "truth": "浙FA1B2C",
+      "color": "black",
+      "count": 7,
+      "segmentation_status": "ok",
+      "prediction": "浙FA7B20",
+      "status": "needs_review",
+      "exact_match": false,
+      "correct_characters": 5
+    },
+    {
+      "file": "blue_7.png",
+      "truth": "京A12345",
+      "color": "blue",
+      "count": 7,
+      "segmentation_status": "ok",
+      "prediction": "黑A72345",
+      "status": "needs_review",
+      "exact_match": false,
+      "correct_characters": 5
+    },
+    {
+      "file": "blue_tilt.png",
+      "truth": "冀D97531",
+      "color": "blue",
+      "count": 5,
+      "segmentation_status": "count_abnormal",
+      "prediction": "",
+      "status": "invalid_length",
+      "exact_match": false,
+      "correct_characters": null
+    },
+    {
+      "file": "green_8.png",
+      "truth": "粤CD12345",
+      "color": "green",
+      "count": 8,
+      "segmentation_status": "ok",
+      "prediction": "蒙G072345",
+      "status": "needs_review",
+      "exact_match": false,
+      "correct_characters": 4
+    },
+    {
+      "file": "white_7.png",
+      "truth": "苏E66T78",
+      "color": "white",
+      "count": 7,
+      "segmentation_status": "ok",
+      "prediction": "苏E66T78",
+      "status": "needs_review",
+      "exact_match": true,
+      "correct_characters": 7
+    },
+    {
+      "file": "yellow_7.png",
+      "truth": "沪B88888",
+      "color": "yellow",
+      "count": 7,
+      "segmentation_status": "ok",
+      "prediction": "蒙B88888",
+      "status": "needs_review",
+      "exact_match": false,
+      "correct_characters": 6
+    }
+  ]
+}

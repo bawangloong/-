@@ -1,0 +1,196 @@
+{
+  "split": "validation",
+  "count": 1958,
+  "classes": 65,
+  "feature_version": "numpy-hog32-root-v1",
+  "unrestricted": {
+    "all": {
+      "count": 1958,
+      "top1_correct": 1796,
+      "top1_accuracy": 0.9172625127681308,
+      "top3_correct": 1889,
+      "top3_accuracy": 0.9647599591419816,
+      "macro_recall": 0.7923710407876003,
+      "auto_accepted_count": 1334,
+      "auto_accepted_accuracy": 0.9955022488755623,
+      "review_count": 624
+    },
+    "digits": {
+      "count": 902,
+      "top1_correct": 885,
+      "top1_accuracy": 0.9811529933481153,
+      "top3_correct": 895,
+      "top3_accuracy": 0.9922394678492239,
+      "macro_recall": 0.9752341151495564,
+      "auto_accepted_count": 756,
+      "auto_accepted_accuracy": 0.9986772486772487,
+      "review_count": 146
+    },
+    "letters": {
+      "count": 646,
+      "top1_correct": 606,
+      "top1_accuracy": 0.9380804953560371,
+      "top3_correct": 639,
+      "top3_accuracy": 0.9891640866873065,
+      "macro_recall": 0.9148827180049824,
+      "auto_accepted_count": 470,
+      "auto_accepted_accuracy": 0.9893617021276596,
+      "review_count": 176
+    },
+    "provinces": {
+      "count": 410,
+      "top1_correct": 305,
+      "top1_accuracy": 0.7439024390243902,
+      "top3_correct": 355,
+      "top3_accuracy": 0.8658536585365854,
+      "macro_recall": 0.6385352021799641,
+      "auto_accepted_count": 108,
+      "auto_accepted_accuracy": 1.0,
+      "review_count": 302
+    }
+  },
+  "type_constrained": {
+    "all": {
+      "count": 1958,
+      "top1_correct": 1811,
+      "top1_accuracy": 0.924923391215526,
+      "top3_correct": 1900,
+      "top3_accuracy": 0.9703779366700716,
+      "macro_recall": 0.8033903571103962,
+      "auto_accepted_count": 1365,
+      "auto_accepted_accuracy": 0.9941391941391942,
+      "review_count": 593
+    },
+    "digits": {
+      "count": 902,
+      "top1_correct": 888,
+      "top1_accuracy": 0.9844789356984479,
+      "top3_correct": 898,
+      "top3_accuracy": 0.9955654101995566,
+      "macro_recall": 0.9797795696950107,
+      "auto_accepted_count": 763,
+      "auto_accepted_accuracy": 0.9986893840104849,
+      "review_count": 139
+    },
+    "letters": {
+      "count": 646,
+      "top1_correct": 608,
+      "top1_accuracy": 0.9411764705882353,
+      "top3_correct": 641,
+      "top3_accuracy": 0.9922600619195047,
+      "macro_recall": 0.9180556107252889,
+      "auto_accepted_count": 485,
+      "auto_accepted_accuracy": 0.9876288659793815,
+      "review_count": 161
+    },
+    "provinces": {
+      "count": 410,
+      "top1_correct": 315,
+      "top1_accuracy": 0.7682926829268293,
+      "top3_correct": 361,
+      "top3_accuracy": 0.8804878048780488,
+      "macro_recall": 0.6577175115425392,
+      "auto_accepted_count": 117,
+      "auto_accepted_accuracy": 0.9914529914529915,
+      "review_count": 293
+    }
+  },
+  "constraint_definition": "province characters restricted to provinces; other characters restricted to digits+letters; assumes plate-position type is known",
+  "review_thresholds": {
+    "similarity": 0.75,
+    "margin": 0.02,
+    "meaning": "heuristics, not calibrated correctness probabilities"
+  },
+  "timing": {
+    "library_load_seconds": 0.1512929999953485,
+    "feature_extraction_seconds": 1.666109999998298,
+    "batched_unrestricted_matching_seconds": 0.4669045000046026,
+    "mean_extract_and_batch_match_ms_per_char": 1.0893843207369258,
+    "note": "includes image I/O and preprocessing; batch 128; not GUI latency"
+  },
+  "environment": {
+    "python": "3.13.7",
+    "opencv": "5.0.0",
+    "numpy": "2.3.5",
+    "pillow": "12.0.0",
+    "platform": "Windows-11-10.0.26200-SP0"
+  },
+  "limitations": "single-character within-source holdout; not full-plate end-to-end accuracy or unseen-camera generalization",
+  "common_confusions": [
+    {
+      "truth": "D",
+      "prediction": "0",
+      "count": 7
+    },
+    {
+      "truth": "1",
+      "prediction": "川",
+      "count": 5
+    },
+    {
+      "truth": "0",
+      "prediction": "D",
+      "count": 4
+    },
+    {
+      "truth": "C",
+      "prediction": "G",
+      "count": 4
+    },
+    {
+      "truth": "B",
+      "prediction": "8",
+      "count": 3
+    },
+    {
+      "truth": "京",
+      "prediction": "津",
+      "count": 3
+    },
+    {
+      "truth": "吉",
+      "prediction": "8",
+      "count": 3
+    },
+    {
+      "truth": "陕",
+      "prediction": "皖",
+      "count": 3
+    },
+    {
+      "truth": "1",
+      "prediction": "0",
+      "count": 2
+    },
+    {
+      "truth": "H",
+      "prediction": "M",
+      "count": 2
+    },
+    {
+      "truth": "M",
+      "prediction": "N",
+      "count": 2
+    },
+    {
+      "truth": "Q",
+      "prediction": "C",
+      "count": 2
+    },
+    {
+      "truth": "U",
+      "prediction": "0",
+      "count": 2
+    },
+    {
+      "truth": "鄂",
+      "prediction": "苏",
+      "count": 2
+    },
+    {
+      "truth": "冀",
+      "prediction": "赣",
+      "count": 2
+    }
+  ]
+}

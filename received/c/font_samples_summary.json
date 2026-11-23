@@ -1,0 +1,16 @@
+{
+  "count": 387,
+  "labels": 65,
+  "fonts": [
+    "msyh.ttc",
+    "simhei.ttf"
+  ],
+  "sizes": [
+    48,
+    64,
+    80
+  ],
+  "source": "rendered independently for every supported label, not B slices or B expected plate strings",
+  "purpose": "auxiliary templates for screen-font inputs; same-font synthetic evaluation is not unseen-font generalization",
+  "font_notice": "font binaries are NOT redistributed; rendered course-use samples only"
+}

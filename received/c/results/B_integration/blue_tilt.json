@@ -1,0 +1,79 @@
+{
+  "color": {
+    "color": "blue",
+    "label": "蓝牌",
+    "confidence": 1.0,
+    "detail": {
+      "hist": {
+        "blue": 1.0,
+        "yellow": 0.0,
+        "green": 0.0,
+        "white": 0.0,
+        "black": 0.0,
+        "unknown": 0.0
+      },
+      "sat_ratio": 0.8764,
+      "median_v": 200.0
+    }
+  },
+  "segmentation": {
+    "count": 5,
+    "status": "count_abnormal",
+    "boxes": [
+      [
+        29,
+        53,
+        58,
+        59
+      ],
+      [
+        147,
+        47,
+        29,
+        46
+      ],
+      [
+        179,
+        43,
+        28,
+        45
+      ],
+      [
+        217,
+        40,
+        26,
+        45
+      ],
+      [
+        250,
+        36,
+        26,
+        46
+      ]
+    ],
+    "box_coordinates": "B stage norm image (height 140), not original image coordinates"
+  },
+  "recognition": {
+    "text": "",
+    "character_count": 5,
+    "layout": "standard",
+    "characters": [],
+    "warnings": [
+      "常见车牌需 7 或 8 个字符，请检查 B 的分割结果",
+      "B 的分割状态异常，请先检查切片或让 A 矫正车牌"
+    ],
+    "score_definition": "cosine of combined unit features = 0.55*HOG_cosine + 0.45*pixel_cosine; not a correctness probability",
+    "status": "invalid_length",
+    "segmentation_status": "count_abnormal"
+  },
+  "source": "blue_tilt.png",
+  "evaluation_only": {
+    "truth": "冀D97531",
+    "source": "B make_test_plates.py SPECS (synthetic)",
+    "exact_match": false
+  },
+  "archived_slice_comparison": {
+    "same_count": true,
+    "all_pixels_equal": true
+  }
+}

@@ -1,0 +1,287 @@
+{
+  "color": {
+    "color": "blue",
+    "label": "蓝牌",
+    "confidence": 1.0,
+    "detail": {
+      "hist": {
+        "blue": 1.0,
+        "yellow": 0.0,
+        "green": 0.0,
+        "white": 0.0,
+        "black": 0.0,
+        "unknown": 0.0
+      },
+      "sat_ratio": 0.8612,
+      "median_v": 200.0
+    }
+  },
+  "segmentation": {
+    "count": 7,
+    "status": "ok",
+    "boxes": [
+      [
+        35,
+        33,
+        73,
+        74
+      ],
+      [
+        112,
+        40,
+        50,
+        58
+      ],
+      [
+        191,
+        39,
+        21,
+        59
+      ],
+      [
+        232,
+        39,
+        37,
+        59
+      ],
+      [
+        278,
+        39,
+        34,
+        60
+      ],
+      [
+        319,
+        40,
+        43,
+        58
+      ],
+      [
+        370,
+        40,
+        33,
+        59
+      ]
+    ],
+    "box_coordinates": "B stage norm image (height 140), not original image coordinates"
+  },
+  "recognition": {
+    "text": "黑A72345",
+    "character_count": 7,
+    "layout": "standard",
+    "characters": [
+      {
+        "position": 0,
+        "label": "黑",
+        "similarity": 0.7876240611076355,
+        "margin": 0.004769861698150635,
+        "status": "needs_review",
+        "message": "匹配较弱或候选相近，建议复核",
+        "candidates": [
+          {
+            "label": "黑",
+            "similarity": 0.7876240611076355,
+            "sample_index": 7562,
+            "sample_path": "zh_hei/e336c86f355d25b82194.jpg"
+          },
+          {
+            "label": "京",
+            "similarity": 0.7828541994094849,
+            "sample_index": 7938,
+            "sample_path": "zh_jing/5f5a157db6ad46f35e69.jpg"
+          },
+          {
+            "label": "陕",
+            "similarity": 0.7817343473434448,
+            "sample_index": 8314,
+            "sample_path": "zh_shan/eb822d654563e27f9760.jpg"
+          }
+        ]
+      },
+      {
+        "position": 1,
+        "label": "A",
+        "similarity": 0.8488965034484863,
+        "margin": 0.12571609020233154,
+        "status": "ok",
+        "message": "",
+        "candidates": [
+          {
+            "label": "A",
+            "similarity": 0.8488965034484863,
+            "sample_index": 4393,
+            "sample_path": "A/5351ac34ac15635228d2.jpg"
+          },
+          {
+            "label": "Q",
+            "similarity": 0.7231804132461548,
+            "sample_index": 6605,
+            "sample_path": "Q/4ada95ce518680891402.jpg"
+          },
+          {
+            "label": "B",
+            "similarity": 0.6944915652275085,
+            "sample_index": 4928,
+            "sample_path": "B/a0a210583bd5fb87e12f.jpg"
+          }
+        ]
+      },
+      {
+        "position": 2,
+        "label": "7",
+        "similarity": 0.8029317259788513,
+        "margin": 0.025006651878356934,
+        "status": "ok",
+        "message": "",
+        "candidates": [
+          {
+            "label": "7",
+            "similarity": 0.8029317259788513,
+            "sample_index": 2716,
+            "sample_path": "7/a60551b3717d6470dfc3.jpg"
+          },
+          {
+            "label": "1",
+            "similarity": 0.7779250741004944,
+            "sample_index": 408,
+            "sample_path": "1/05faeda7e5791954307a.jpg"
+          },
+          {
+            "label": "T",
+            "similarity": 0.7747399806976318,
+            "sample_index": 6848,
+            "sample_path": "T/2daedafe27ac8b05623f.jpg"
+          }
+        ]
+      },
+      {
+        "position": 3,
+        "label": "2",
+        "similarity": 0.8790595531463623,
+        "margin": 0.07954519987106323,
+        "status": "ok",
+        "message": "",
+        "candidates": [
+          {
+            "label": "2",
+            "similarity": 0.8790595531463623,
+            "sample_index": 670,
+            "sample_path": "2/28cb4ddcf5b5583a8c64.jpg"
+          },
+          {
+            "label": "Z",
+            "similarity": 0.7995143532752991,
+            "sample_index": 7208,
+            "sample_path": "Z/b241da7ecde68d6874f6.jpg"
+          },
+          {
+            "label": "P",
+            "similarity": 0.7146308422088623,
+            "sample_index": 6586,
+            "sample_path": "P/f802a74845afb8cafb2b.jpg"
+          }
+        ]
+      },
+      {
+        "position": 4,
+        "label": "3",
+        "similarity": 0.8348902463912964,
+        "margin": 0.019904732704162598,
+        "status": "needs_review",
+        "message": "匹配较弱或候选相近，建议复核",
+        "candidates": [
+          {
+            "label": "3",
+            "similarity": 0.8348902463912964,
+            "sample_index": 1181,
+            "sample_path": "3/c965cc2d8b9f6194c368.jpg"
+          },
+          {
+            "label": "B",
+            "similarity": 0.8149855136871338,
+            "sample_index": 5024,
+            "sample_path": "B/fbf8e6a8bb446d170eb6.jpg"
+          },
+          {
+            "label": "8",
+            "similarity": 0.7991607785224915,
+            "sample_index": 3378,
+            "sample_path": "8/b4ecef01732ca89ef511.jpg"
+          }
+        ]
+      },
+      {
+        "position": 5,
+        "label": "4",
+        "similarity": 0.8729518055915833,
+        "margin": 0.10130566358566284,
+        "status": "ok",
+        "message": "",
+        "candidates": [
+          {
+            "label": "4",
+            "similarity": 0.8729518055915833,
+            "sample_index": 1273,
+            "sample_path": "4/1cf2a1a8eba162245683.jpg"
+          },
+          {
+            "label": "A",
+            "similarity": 0.7716461420059204,
+            "sample_index": 4651,
+            "sample_path": "A/ca1d50a0d8c35efbb5bc.jpg"
+          },
+          {
+            "label": "6",
+            "similarity": 0.758692741394043,
+            "sample_index": 2278,
+            "sample_path": "6/962c532d4e08c6edefc7.jpg"
+          }
+        ]
+      },
+      {
+        "position": 6,
+        "label": "5",
+        "similarity": 0.8807364702224731,
+        "margin": 0.05487561225891113,
+        "status": "ok",
+        "message": "",
+        "candidates": [
+          {
+            "label": "5",
+            "similarity": 0.8807364702224731,
+            "sample_index": 1919,
+            "sample_path": "5/d31cf296d48f5c69f7b8.jpg"
+          },
+          {
+            "label": "S",
+            "similarity": 0.825860857963562,
+            "sample_index": 6802,
+            "sample_path": "S/a6dafd1002fc4c33cda9.jpg"
+          },
+          {
+            "label": "3",
+            "similarity": 0.7881689071655273,
+            "sample_index": 1135,
+            "sample_path": "3/a0e56dead36deea65ef2.jpg"
+          }
+        ]
+      }
+    ],
+    "warnings": [
+      "位置约束仅覆盖常见民用 7/8 位结构，不验证全部号牌规则"
+    ],
+    "score_definition": "cosine similarity, not a correctness probability",
+    "status": "needs_review",
+    "segmentation_status": "ok"
+  },
+  "source": "blue_7.png",
+  "evaluation_only": {
+    "truth": "京A12345",
+    "source": "B make_test_plates.py SPECS (synthetic)",
+    "exact_match": false
+  },
+  "archived_slice_comparison": {
+    "same_count": true,
+    "all_pixels_equal": true
+  }
+}

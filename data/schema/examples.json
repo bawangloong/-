@@ -1,0 +1,225 @@
+[
+  {
+    "_example": true,
+    "_comment": "示例，不是样本。不要把 EXAMPLE_ 编号写进 data/splits/manifest.json。",
+    "image_id": "EXAMPLE_no_plate",
+    "relative_path": "data/raw/development/EXAMPLE_no_plate.jpg",
+    "width": 1920,
+    "height": 1080,
+    "source": {
+      "origin": "synthetic",
+      "name": "placeholder",
+      "license": "none",
+      "url": "",
+      "note": "空模板示例，不是真实车牌照片"
+    },
+    "purpose": "development",
+    "category": ["no_plate"],
+    "has_plate": false,
+    "plates": [],
+    "conditions": {"tilt": false, "blur": false, "glare": false},
+    "reviewed": false
+  },
+  {
+    "_example": true,
+    "_comment": "单块蓝牌，无倾斜、模糊、反光。",
+    "image_id": "EXAMPLE_blue_normal",
+    "relative_path": "data/raw/development/EXAMPLE_blue_normal.jpg",
+    "width": 1920,
+    "height": 1080,
+    "source": {
+      "origin": "synthetic",
+      "name": "placeholder",
+      "license": "none",
+      "url": "",
+      "note": "空模板示例，不是真实车牌照片"
+    },
+    "purpose": "development",
+    "category": ["single_plate", "color_blue", "normal"],
+    "has_plate": true,
+    "plates": [
+      {
+        "plate_id": "EXAMPLE_blue_normal_0",
+        "box": {"x": 800, "y": 620, "w": 220, "h": 70},
+        "number": "京A12345",
+        "color": "blue",
+        "char_count": 7,
+        "chars": ["京", "A", "1", "2", "3", "4", "5"],
+        "readable": true
+      }
+    ],
+    "conditions": {"tilt": false, "blur": false, "glare": false},
+    "reviewed": false
+  },
+  {
+    "_example": true,
+    "_comment": "同一张图两块牌：黄牌 7 字，新能源绿牌 8 字。",
+    "image_id": "EXAMPLE_multi_yellow_green",
+    "relative_path": "data/raw/development/EXAMPLE_multi_yellow_green.jpg",
+    "width": 1920,
+    "height": 1080,
+    "source": {
+      "origin": "synthetic",
+      "name": "placeholder",
+      "license": "none",
+      "url": "",
+      "note": "空模板示例，不是真实车牌照片"
+    },
+    "purpose": "development",
+    "category": ["multi_plate", "color_yellow", "color_green"],
+    "has_plate": true,
+    "plates": [
+      {
+        "plate_id": "EXAMPLE_multi_yellow_green_0",
+        "box": {"x": 200, "y": 400, "w": 240, "h": 80},
+        "number": "粤B12345",
+        "color": "yellow",
+        "char_count": 7,
+        "chars": ["粤", "B", "1", "2", "3", "4", "5"],
+        "readable": true
+      },
+      {
+        "plate_id": "EXAMPLE_multi_yellow_green_1",
+        "box": {"x": 1100, "y": 360, "w": 260, "h": 80},
+        "number": "京AD12345",
+        "color": "green",
+        "char_count": 8,
+        "chars": ["京", "A", "D", "1", "2", "3", "4", "5"],
+        "readable": true
+      }
+    ],
+    "conditions": {"tilt": false, "blur": false, "glare": false},
+    "reviewed": false
+  },
+  {
+    "_example": true,
+    "_comment": "白牌同时有倾斜、模糊和反光。quad 是四角，定位指标仍只用外接矩形 box。",
+    "image_id": "EXAMPLE_white_tilt_blur_glare",
+    "relative_path": "data/raw/development/EXAMPLE_white_tilt_blur_glare.jpg",
+    "width": 1920,
+    "height": 1080,
+    "source": {
+      "origin": "synthetic",
+      "name": "placeholder",
+      "license": "none",
+      "url": "",
+      "note": "空模板示例，不是真实车牌照片"
+    },
+    "purpose": "development",
+    "category": ["single_plate", "color_white", "tilt", "blur", "glare"],
+    "has_plate": true,
+    "plates": [
+      {
+        "plate_id": "EXAMPLE_white_tilt_blur_glare_0",
+        "box": {"x": 700, "y": 500, "w": 280, "h": 90},
+        "quad": [
+          {"x": 710, "y": 530},
+          {"x": 960, "y": 505},
+          {"x": 970, "y": 580},
+          {"x": 705, "y": 585}
+        ],
+        "number": "浙A12345",
+        "color": "white",
+        "char_count": 7,
+        "chars": ["浙", "A", "1", "2", "3", "4", "5"],
+        "readable": true
+      }
+    ],
+    "conditions": {"tilt": true, "blur": true, "glare": true},
+    "reviewed": false
+  },
+  {
+    "_example": true,
+    "_comment": "只允许角色 C 用 library 里的图切字符。不要把同一张图复制到 validation 或 final_test。",
+    "image_id": "EXAMPLE_library_black",
+    "relative_path": "data/raw/library/EXAMPLE_library_black.jpg",
+    "width": 1920,
+    "height": 1080,
+    "source": {
+      "origin": "synthetic",
+      "name": "placeholder",
+      "license": "none",
+      "url": "",
+      "note": "空模板示例，不是真实车牌照片"
+    },
+    "purpose": "library",
+    "category": ["single_plate", "color_black", "normal"],
+    "has_plate": true,
+    "plates": [
+      {
+        "plate_id": "EXAMPLE_library_black_0",
+        "box": {"x": 900, "y": 640, "w": 200, "h": 64},
+        "number": "京A99999",
+        "color": "black",
+        "char_count": 7,
+        "chars": ["京", "A", "9", "9", "9", "9", "9"],
+        "readable": true
+      }
+    ],
+    "conditions": {"tilt": false, "blur": false, "glare": false},
+    "reviewed": false
+  },
+  {
+    "_example": true,
+    "_comment": "验证集中的模糊蓝牌。验证集可以用来看指标，不能用来做字符库。",
+    "image_id": "EXAMPLE_val_blur",
+    "relative_path": "data/raw/validation/EXAMPLE_val_blur.jpg",
+    "width": 1920,
+    "height": 1080,
+    "source": {
+      "origin": "synthetic",
+      "name": "placeholder",
+      "license": "none",
+      "url": "",
+      "note": "空模板示例，不是真实车牌照片"
+    },
+    "purpose": "validation",
+    "category": ["single_plate", "color_blue", "blur"],
+    "has_plate": true,
+    "plates": [
+      {
+        "plate_id": "EXAMPLE_val_blur_0",
+        "box": {"x": 860, "y": 600, "w": 210, "h": 68},
+        "number": "苏A12345",
+        "color": "blue",
+        "char_count": 7,
+        "chars": ["苏", "A", "1", "2", "3", "4", "5"],
+        "readable": true
+      }
+    ],
+    "conditions": {"tilt": false, "blur": true, "glare": false},
+    "reviewed": false
+  },
+  {
+    "_example": true,
+    "_comment": "终测里颜色标成显式未知，并带反光。终测图像不能参与字符库，也不能拿去调参后再测。",
+    "image_id": "EXAMPLE_test_unknown_glare",
+    "relative_path": "data/raw/final_test/EXAMPLE_test_unknown_glare.jpg",
+    "width": 1920,
+    "height": 1080,
+    "source": {
+      "origin": "synthetic",
+      "name": "placeholder",
+      "license": "none",
+      "url": "",
+      "note": "空模板示例，不是真实车牌照片"
+    },
+    "purpose": "final_test",
+    "category": ["single_plate", "glare"],
+    "has_plate": true,
+    "plates": [
+      {
+        "plate_id": "EXAMPLE_test_unknown_glare_0",
+        "box": {"x": 840, "y": 610, "w": 200, "h": 66},
+        "number": "鲁A12345",
+        "color": "unknown",
+        "char_count": 7,
+        "chars": ["鲁", "A", "1", "2", "3", "4", "5"],
+        "readable": true,
+        "notes": "颜色看不清，号码仍可标注"
+      }
+    ],
+    "conditions": {"tilt": false, "blur": false, "glare": true},
+    "reviewed": false
+  }
+]
