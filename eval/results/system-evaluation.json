@@ -1,0 +1,2524 @@
+{
+  "kind": "system-evaluation",
+  "is_system_measurement": true,
+  "definitions": "eval/README.md",
+  "iou_threshold": 0.5,
+  "n_images": 17,
+  "n_errors": 0,
+  "n_gt_plates": 19,
+  "n_pred_plates": 22,
+  "plate_presence": {
+    "correct": 9,
+    "total": 17,
+    "accuracy": 0.5294117647058824
+  },
+  "localization": {
+    "tp": 5,
+    "fp": 17,
+    "fn": 14,
+    "precision": 0.22727272727272727,
+    "recall": 0.2631578947368421,
+    "iou_threshold": 0.5
+  },
+  "color": {
+    "correct": 5,
+    "total": 5,
+    "accuracy": 1.0,
+    "label_set": [
+      "blue",
+      "yellow",
+      "green",
+      "white",
+      "black",
+      "unknown"
+    ]
+  },
+  "char_count": {
+    "correct": 1,
+    "total": 5,
+    "accuracy": 0.2
+  },
+  "character": {
+    "on_hits": {
+      "correct": 4,
+      "total": 35,
+      "accuracy": 0.11428571428571428
+    },
+    "end_to_end": {
+      "correct": 4,
+      "total": 115,
+      "accuracy": 0.034782608695652174
+    }
+  },
+  "full_plate": {
+    "on_hits": {
+      "correct": 0,
+      "total": 5,
+      "accuracy": 0.0
+    },
+    "end_to_end": {
+      "correct": 0,
+      "total": 16,
+      "accuracy": 0.0
+    }
+  },
+  "runtime": {
+    "n_timed": 17,
+    "total_s": 2.9527838499998325,
+    "mean_s": 0.17369316764704898,
+    "median_s": 0.1937641839999742,
+    "p95_s": 0.42160824699999466,
+    "timer": "time.perf_counter around one pipeline.run(image_path) call per image"
+  },
+  "images": [
+    {
+      "image_id": "val_ccpd_0",
+      "presence_correct": false,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1
+    },
+    {
+      "image_id": "val_diplomatic",
+      "presence_correct": false,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1
+    },
+    {
+      "image_id": "val_yellow_bike",
+      "presence_correct": true,
+      "tp": 0,
+      "fp": 2,
+      "fn": 1
+    },
+    {
+      "image_id": "val_green_shanghai",
+      "presence_correct": true,
+      "tp": 0,
+      "fp": 1,
+      "fn": 1
+    },
+    {
+      "image_id": "val_multi_hk",
+      "presence_correct": true,
+      "tp": 1,
+      "fp": 2,
+      "fn": 3
+    },
+    {
+      "image_id": "val_military_glare",
+      "presence_correct": true,
+      "tp": 0,
+      "fp": 1,
+      "fn": 1
+    },
+    {
+      "image_id": "val_blur_california",
+      "presence_correct": false,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1
+    },
+    {
+      "image_id": "val_empty_aerial",
+      "presence_correct": false,
+      "tp": 0,
+      "fp": 3,
+      "fn": 0
+    },
+    {
+      "image_id": "fin_ccpd_1",
+      "presence_correct": false,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1
+    },
+    {
+      "image_id": "fin_ccpd_4",
+      "presence_correct": true,
+      "tp": 0,
+      "fp": 1,
+      "fn": 1
+    },
+    {
+      "image_id": "fin_green_rickshaw",
+      "presence_correct": true,
+      "tp": 1,
+      "fp": 2,
+      "fn": 0
+    },
+    {
+      "image_id": "fin_yellow_shaanxi",
+      "presence_correct": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "image_id": "fin_military_hg",
+      "presence_correct": false,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1
+    },
+    {
+      "image_id": "fin_diplomatic",
+      "presence_correct": false,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1
+    },
+    {
+      "image_id": "fin_green_large",
+      "presence_correct": true,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0
+    },
+    {
+      "image_id": "fin_blur_motorcycle",
+      "presence_correct": true,
+      "tp": 0,
+      "fp": 2,
+      "fn": 1
+    },
+    {
+      "image_id": "fin_empty_lot",
+      "presence_correct": false,
+      "tp": 0,
+      "fp": 3,
+      "fn": 0
+    }
+  ],
+  "splits": [
+    "validation",
+    "final_test"
+  ],
+  "pipeline": "/tmp/plate-recognition-submit/pipeline.py",
+  "manifest": "/agent/repos/-/data/splits/manifest.json",
+  "traces": [
+    {
+      "image_id": "val_ccpd_0",
+      "split": "validation",
+      "relative_path": "data/raw/validation/ccpd_demo_0.jpg",
+      "elapsed_s": 0.42160824699999466,
+      "has_plate": true,
+      "pred_count": 0,
+      "presence_correct": false,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "error_code": "no_plate",
+      "warnings": [
+        "第 1 个候选区域识别置信度低，按误检丢弃",
+        "第 2 个候选区域识别置信度低，按误检丢弃",
+        "第 3 个候选区域识别置信度低，按误检丢弃",
+        "第 4 个候选区域识别置信度低，按误检丢弃"
+      ],
+      "plates": [
+        {
+          "plate_id": "p1",
+          "recognition_item": true,
+          "expected": {
+            "box": {
+              "x": 240,
+              "y": 490,
+              "w": 240,
+              "h": 100
+            },
+            "number": "皖A195K9",
+            "color": "blue",
+            "char_count": 7
+          },
+          "actual": null
+        }
+      ],
+      "failures": [
+        {
+          "image_id": "val_ccpd_0",
+          "split": "validation",
+          "item": "车牌是否存在",
+          "expected": true,
+          "actual": false,
+          "module": "集成过滤（D）",
+          "evidence": "第 1 个候选区域识别置信度低，按误检丢弃；第 2 个候选区域识别置信度低，按误检丢弃；第 3 个候选区域识别置信度低，按误检丢弃；第 4 个候选区域识别置信度低，按误检丢弃",
+          "recognition_item": false
+        },
+        {
+          "image_id": "val_ccpd_0",
+          "split": "validation",
+          "item": "定位",
+          "expected": {
+            "x": 240,
+            "y": 490,
+            "w": 240,
+            "h": 100
+          },
+          "actual": "未配上",
+          "module": "集成过滤（D）",
+          "evidence": "第 1 个候选区域识别置信度低，按误检丢弃；第 2 个候选区域识别置信度低，按误检丢弃；第 3 个候选区域识别置信度低，按误检丢弃；第 4 个候选区域识别置信度低，按误检丢弃",
+          "recognition_item": false
+        },
+        {
+          "image_id": "val_ccpd_0",
+          "split": "validation",
+          "item": "整牌（端到端）",
+          "expected": "皖A195K9",
+          "actual": "",
+          "module": "集成过滤（D）",
+          "evidence": "没有配上的预测框，端到端整牌算错；不进入定位命中后的识别率。 第 1 个候选区域识别置信度低，按误检丢弃；第 2 个候选区域识别置信度低，按误检丢弃；第 3 个候选区域识别置信度低，按误检丢弃；第 4 个候选区域识别置信度低，按误检丢弃",
+          "recognition_item": true
+        }
+      ]
+    },
+    {
+      "image_id": "val_diplomatic",
+      "split": "validation",
+      "relative_path": "data/raw/validation/diplomatic_127.jpg",
+      "elapsed_s": 0.15537057899996398,
+      "has_plate": true,
+      "pred_count": 0,
+      "presence_correct": false,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "error_code": "no_plate",
+      "warnings": [
+        "第 1 个候选区域识别置信度低，按误检丢弃",
+        "第 2 个候选区域识别置信度低，按误检丢弃",
+        "第 3 个候选区域识别置信度低，按误检丢弃",
+        "第 4 个候选区域识别置信度低，按误检丢弃"
+      ],
+      "plates": [
+        {
+          "plate_id": "p1",
+          "recognition_item": true,
+          "expected": {
+            "box": {
+              "x": 400,
+              "y": 340,
+              "w": 560,
+              "h": 210
+            },
+            "number": "127002使",
+            "color": "black",
+            "char_count": 7
+          },
+          "actual": null
+        }
+      ],
+      "failures": [
+        {
+          "image_id": "val_diplomatic",
+          "split": "validation",
+          "item": "车牌是否存在",
+          "expected": true,
+          "actual": false,
+          "module": "集成过滤（D）",
+          "evidence": "第 1 个候选区域识别置信度低，按误检丢弃；第 2 个候选区域识别置信度低，按误检丢弃；第 3 个候选区域识别置信度低，按误检丢弃；第 4 个候选区域识别置信度低，按误检丢弃",
+          "recognition_item": false
+        },
+        {
+          "image_id": "val_diplomatic",
+          "split": "validation",
+          "item": "定位",
+          "expected": {
+            "x": 400,
+            "y": 340,
+            "w": 560,
+            "h": 210
+          },
+          "actual": "未配上",
+          "module": "集成过滤（D）",
+          "evidence": "第 1 个候选区域识别置信度低，按误检丢弃；第 2 个候选区域识别置信度低，按误检丢弃；第 3 个候选区域识别置信度低，按误检丢弃；第 4 个候选区域识别置信度低，按误检丢弃",
+          "recognition_item": false
+        },
+        {
+          "image_id": "val_diplomatic",
+          "split": "validation",
+          "item": "整牌（端到端）",
+          "expected": "127002使",
+          "actual": "",
+          "module": "集成过滤（D）",
+          "evidence": "没有配上的预测框，端到端整牌算错；不进入定位命中后的识别率。 第 1 个候选区域识别置信度低，按误检丢弃；第 2 个候选区域识别置信度低，按误检丢弃；第 3 个候选区域识别置信度低，按误检丢弃；第 4 个候选区域识别置信度低，按误检丢弃",
+          "recognition_item": true
+        }
+      ]
+    },
+    {
+      "image_id": "val_yellow_bike",
+      "split": "validation",
+      "relative_path": "data/raw/validation/yellow_bike.jpg",
+      "elapsed_s": 0.19624310599988348,
+      "has_plate": true,
+      "pred_count": 2,
+      "presence_correct": true,
+      "tp": 0,
+      "fp": 2,
+      "fn": 1,
+      "error_code": null,
+      "warnings": [
+        "第 2 个候选区域识别置信度低，按误检丢弃",
+        "第 4 个候选区域识别置信度低，按误检丢弃"
+      ],
+      "plates": [
+        {
+          "plate_id": "p1",
+          "recognition_item": true,
+          "expected": {
+            "box": {
+              "x": 390,
+              "y": 300,
+              "w": 680,
+              "h": 620
+            },
+            "number": "京东城0003934",
+            "color": "yellow",
+            "char_count": 10
+          },
+          "actual": null
+        }
+      ],
+      "failures": [
+        {
+          "image_id": "val_yellow_bike",
+          "split": "validation",
+          "item": "定位",
+          "expected": {
+            "x": 390,
+            "y": 300,
+            "w": 680,
+            "h": 620
+          },
+          "actual": "未配上",
+          "module": "集成过滤（D）",
+          "evidence": "第 2 个候选区域识别置信度低，按误检丢弃；第 4 个候选区域识别置信度低，按误检丢弃",
+          "recognition_item": false
+        },
+        {
+          "image_id": "val_yellow_bike",
+          "split": "validation",
+          "item": "整牌（端到端）",
+          "expected": "京东城0003934",
+          "actual": "",
+          "module": "集成过滤（D）",
+          "evidence": "没有配上的预测框，端到端整牌算错；不进入定位命中后的识别率。 第 2 个候选区域识别置信度低，按误检丢弃；第 4 个候选区域识别置信度低，按误检丢弃",
+          "recognition_item": true
+        },
+        {
+          "image_id": "val_yellow_bike",
+          "split": "validation",
+          "item": "定位误检",
+          "expected": "无对应标注框",
+          "actual": {
+            "x": 858,
+            "y": 0,
+            "w": 51,
+            "h": 15
+          },
+          "module": "检测",
+          "evidence": "source=color:yellow",
+          "recognition_item": false
+        },
+        {
+          "image_id": "val_yellow_bike",
+          "split": "validation",
+          "item": "定位误检",
+          "expected": "无对应标注框",
+          "actual": {
+            "x": 473,
+            "y": 589,
+            "w": 560,
+            "h": 231
+          },
+          "module": "检测",
+          "evidence": "source=gradient",
+          "recognition_item": false
+        }
+      ]
+    },
+    {
+      "image_id": "val_green_shanghai",
+      "split": "validation",
+      "relative_path": "data/raw/validation/green_shanghai.jpg",
+      "elapsed_s": 0.1937641839999742,
+      "has_plate": true,
+      "pred_count": 1,
+      "presence_correct": true,
+      "tp": 0,
+      "fp": 1,
+      "fn": 1,
+      "error_code": null,
+      "warnings": [
+        "第 1 个候选区域识别置信度低，按误检丢弃",
+        "第 2 个候选区域识别置信度低，按误检丢弃",
+        "第 4 个候选区域识别置信度低，按误检丢弃"
+      ],
+      "plates": [
+        {
+          "plate_id": "p1",
+          "recognition_item": true,
+          "expected": {
+            "box": {
+              "x": 400,
+              "y": 600,
+              "w": 430,
+              "h": 160
+            },
+            "number": "沪AF22933",
+            "color": "green",
+            "char_count": 8
+          },
+          "actual": null
+        }
+      ],
+      "failures": [
+        {
+          "image_id": "val_green_shanghai",
+          "split": "validation",
+          "item": "定位",
+          "expected": {
+            "x": 400,
+            "y": 600,
+            "w": 430,
+            "h": 160
+          },
+          "actual": "未配上",
+          "module": "集成过滤（D）",
+          "evidence": "第 1 个候选区域识别置信度低，按误检丢弃；第 2 个候选区域识别置信度低，按误检丢弃；第 4 个候选区域识别置信度低，按误检丢弃",
+          "recognition_item": false
+        },
+        {
+          "image_id": "val_green_shanghai",
+          "split": "validation",
+          "item": "整牌（端到端）",
+          "expected": "沪AF22933",
+          "actual": "",
+          "module": "集成过滤（D）",
+          "evidence": "没有配上的预测框，端到端整牌算错；不进入定位命中后的识别率。 第 1 个候选区域识别置信度低，按误检丢弃；第 2 个候选区域识别置信度低，按误检丢弃；第 4 个候选区域识别置信度低，按误检丢弃",
+          "recognition_item": true
+        },
+        {
+          "image_id": "val_green_shanghai",
+          "split": "validation",
+          "item": "定位误检",
+          "expected": "无对应标注框",
+          "actual": {
+            "x": 0,
+            "y": 517,
+            "w": 39,
+            "h": 17
+          },
+          "module": "检测",
+          "evidence": "source=color:blue",
+          "recognition_item": false
+        }
+      ]
+    },
+    {
+      "image_id": "val_multi_hk",
+      "split": "validation",
+      "relative_path": "data/raw/validation/multi_hk.jpg",
+      "elapsed_s": 0.22054720799997085,
+      "has_plate": true,
+      "pred_count": 3,
+      "presence_correct": true,
+      "tp": 1,
+      "fp": 2,
+      "fn": 3,
+      "error_code": null,
+      "warnings": [
+        "第 1 个候选区域识别置信度低，按误检丢弃"
+      ],
+      "plates": [
+        {
+          "plate_id": "p1",
+          "recognition_item": true,
+          "expected": {
+            "box": {
+              "x": 600,
+              "y": 540,
+              "w": 300,
+              "h": 95
+            },
+            "number": "粤ZC839澳",
+            "color": "white",
+            "char_count": 7
+          },
+          "actual": null
+        },
+        {
+          "plate_id": "p2",
+          "recognition_item": true,
+          "expected": {
+            "box": {
+              "x": 610,
+              "y": 625,
+              "w": 285,
+              "h": 57
+            },
+            "number": "MJ2882",
+            "color": "yellow",
+            "char_count": 6
+          },
+          "actual": null
+        },
+        {
+          "plate_id": "p3",
+          "recognition_item": true,
+          "expected": {
+            "box": {
+              "x": 590,
+              "y": 675,
+              "w": 310,
+              "h": 75
+            },
+            "number": "ZM1433",
+            "color": "yellow",
+            "char_count": 6
+          },
+          "actual": {
+            "box": {
+              "x": 589,
+              "y": 632,
+              "w": 318,
+              "h": 116
+            },
+            "iou": 0.6033379545696917,
+            "number": "1A豫",
+            "color": "yellow",
+            "char_count": 3,
+            "source": "color:yellow",
+            "status": "ok",
+            "segmentation_status": "count_abnormal",
+            "recognition_status": "needs_review"
+          }
+        },
+        {
+          "plate_id": "p4",
+          "recognition_item": false,
+          "expected": {
+            "box": {
+              "x": 1260,
+              "y": 455,
+              "w": 140,
+              "h": 100
+            },
+            "number": "",
+            "color": "white",
+            "char_count": 0
+          },
+          "actual": null
+        }
+      ],
+      "failures": [
+        {
+          "image_id": "val_multi_hk",
+          "split": "validation",
+          "item": "字符数量",
+          "expected": 6,
+          "actual": 3,
+          "module": "字符分割（B）",
+          "evidence": "segmentation.count=3 status=count_abnormal message=分割出 3 个字符（常见为 7 或 8 个）",
+          "recognition_item": false
+        },
+        {
+          "image_id": "val_multi_hk",
+          "split": "validation",
+          "item": "逐字",
+          "expected": "ZM1433",
+          "actual": "1A豫",
+          "module": "字符分割（B）",
+          "evidence": "segmentation.status=count_abnormal count=3；错位 0:Z->1, 1:M->A, 2:1->豫, 3:4->缺, 4:3->缺, 5:3->缺",
+          "recognition_item": true
+        },
+        {
+          "image_id": "val_multi_hk",
+          "split": "validation",
+          "item": "整牌",
+          "expected": "ZM1433",
+          "actual": "1A豫",
+          "module": "字符分割（B）",
+          "evidence": "segmentation.status=count_abnormal count=3",
+          "recognition_item": true
+        },
+        {
+          "image_id": "val_multi_hk",
+          "split": "validation",
+          "item": "定位",
+          "expected": {
+            "x": 600,
+            "y": 540,
+            "w": 300,
+            "h": 95
+          },
+          "actual": "未配上",
+          "module": "集成过滤（D）",
+          "evidence": "第 1 个候选区域识别置信度低，按误检丢弃",
+          "recognition_item": false
+        },
+        {
+          "image_id": "val_multi_hk",
+          "split": "validation",
+          "item": "整牌（端到端）",
+          "expected": "粤ZC839澳",
+          "actual": "",
+          "module": "集成过滤（D）",
+          "evidence": "没有配上的预测框，端到端整牌算错；不进入定位命中后的识别率。 第 1 个候选区域识别置信度低，按误检丢弃",
+          "recognition_item": true
+        },
+        {
+          "image_id": "val_multi_hk",
+          "split": "validation",
+          "item": "定位",
+          "expected": {
+            "x": 610,
+            "y": 625,
+            "w": 285,
+            "h": 57
+          },
+          "actual": "未配上",
+          "module": "集成过滤（D）",
+          "evidence": "第 1 个候选区域识别置信度低，按误检丢弃",
+          "recognition_item": false
+        },
+        {
+          "image_id": "val_multi_hk",
+          "split": "validation",
+          "item": "整牌（端到端）",
+          "expected": "MJ2882",
+          "actual": "",
+          "module": "集成过滤（D）",
+          "evidence": "没有配上的预测框，端到端整牌算错；不进入定位命中后的识别率。 第 1 个候选区域识别置信度低，按误检丢弃",
+          "recognition_item": true
+        },
+        {
+          "image_id": "val_multi_hk",
+          "split": "validation",
+          "item": "定位",
+          "expected": {
+            "x": 1260,
+            "y": 455,
+            "w": 140,
+            "h": 100
+          },
+          "actual": "未配上",
+          "module": "集成过滤（D）",
+          "evidence": "第 1 个候选区域识别置信度低，按误检丢弃",
+          "recognition_item": false
+        },
+        {
+          "image_id": "val_multi_hk",
+          "split": "validation",
+          "item": "定位误检",
+          "expected": "无对应标注框",
+          "actual": {
+            "x": 278,
+            "y": 282,
+            "w": 77,
+            "h": 32
+          },
+          "module": "检测",
+          "evidence": "source=color:yellow",
+          "recognition_item": false
+        },
+        {
+          "image_id": "val_multi_hk",
+          "split": "validation",
+          "item": "定位误检",
+          "expected": "无对应标注框",
+          "actual": {
+            "x": 602,
+            "y": 566,
+            "w": 144,
+            "h": 55
+          },
+          "module": "检测",
+          "evidence": "source=color:blue",
+          "recognition_item": false
+        }
+      ]
+    },
+    {
+      "image_id": "val_military_glare",
+      "split": "validation",
+      "relative_path": "data/raw/validation/military_glare.jpg",
+      "elapsed_s": 0.21410324799990121,
+      "has_plate": true,
+      "pred_count": 1,
+      "presence_correct": true,
+      "tp": 0,
+      "fp": 1,
+      "fn": 1,
+      "error_code": null,
+      "warnings": [
+        "第 1 个候选区域识别置信度低，按误检丢弃",
+        "第 2 个候选区域识别置信度低，按误检丢弃",
+        "第 4 个候选区域识别置信度低，按误检丢弃"
+      ],
+      "plates": [
+        {
+          "plate_id": "p1",
+          "recognition_item": true,
+          "expected": {
+            "box": {
+              "x": 500,
+              "y": 760,
+              "w": 400,
+              "h": 140
+            },
+            "number": "VA01940",
+            "color": "white",
+            "char_count": 7
+          },
+          "actual": null
+        }
+      ],
+      "failures": [
+        {
+          "image_id": "val_military_glare",
+          "split": "validation",
+          "item": "定位",
+          "expected": {
+            "x": 500,
+            "y": 760,
+            "w": 400,
+            "h": 140
+          },
+          "actual": "未配上",
+          "module": "集成过滤（D）",
+          "evidence": "第 1 个候选区域识别置信度低，按误检丢弃；第 2 个候选区域识别置信度低，按误检丢弃；第 4 个候选区域识别置信度低，按误检丢弃",
+          "recognition_item": false
+        },
+        {
+          "image_id": "val_military_glare",
+          "split": "validation",
+          "item": "整牌（端到端）",
+          "expected": "VA01940",
+          "actual": "",
+          "module": "集成过滤（D）",
+          "evidence": "没有配上的预测框，端到端整牌算错；不进入定位命中后的识别率。 第 1 个候选区域识别置信度低，按误检丢弃；第 2 个候选区域识别置信度低，按误检丢弃；第 4 个候选区域识别置信度低，按误检丢弃",
+          "recognition_item": true
+        },
+        {
+          "image_id": "val_military_glare",
+          "split": "validation",
+          "item": "定位误检",
+          "expected": "无对应标注框",
+          "actual": {
+            "x": 304,
+            "y": 92,
+            "w": 120,
+            "h": 37
+          },
+          "module": "检测",
+          "evidence": "source=color:blue",
+          "recognition_item": false
+        }
+      ]
+    },
+    {
+      "image_id": "val_blur_california",
+      "split": "validation",
+      "relative_path": "data/raw/validation/blur_california.jpg",
+      "elapsed_s": 0.0010972439999932249,
+      "has_plate": true,
+      "pred_count": 0,
+      "presence_correct": false,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "error_code": "no_plate",
+      "warnings": [],
+      "plates": [
+        {
+          "plate_id": "p1",
+          "recognition_item": false,
+          "expected": {
+            "box": {
+              "x": 0,
+              "y": 0,
+              "w": 327,
+              "h": 75
+            },
+            "number": "",
+            "color": "white",
+            "char_count": 7
+          },
+          "actual": null
+        }
+      ],
+      "failures": [
+        {
+          "image_id": "val_blur_california",
+          "split": "validation",
+          "item": "车牌是否存在",
+          "expected": true,
+          "actual": false,
+          "module": "检测",
+          "evidence": "未检测到车牌",
+          "recognition_item": false
+        },
+        {
+          "image_id": "val_blur_california",
+          "split": "validation",
+          "item": "定位",
+          "expected": {
+            "x": 0,
+            "y": 0,
+            "w": 327,
+            "h": 75
+          },
+          "actual": "未配上",
+          "module": "检测",
+          "evidence": "未检测到车牌",
+          "recognition_item": false
+        }
+      ]
+    },
+    {
+      "image_id": "val_empty_aerial",
+      "split": "validation",
+      "relative_path": "data/raw/validation/empty_aerial.jpg",
+      "elapsed_s": 0.21442404499998702,
+      "has_plate": false,
+      "pred_count": 3,
+      "presence_correct": false,
+      "tp": 0,
+      "fp": 3,
+      "fn": 0,
+      "error_code": null,
+      "warnings": [],
+      "plates": [],
+      "failures": [
+        {
+          "image_id": "val_empty_aerial",
+          "split": "validation",
+          "item": "车牌是否存在",
+          "expected": false,
+          "actual": true,
+          "module": "检测",
+          "evidence": "source=color:green,color:yellow,color:yellow",
+          "recognition_item": false
+        },
+        {
+          "image_id": "val_empty_aerial",
+          "split": "validation",
+          "item": "定位误检",
+          "expected": "无对应标注框",
+          "actual": {
+            "x": 203,
+            "y": 154,
+            "w": 926,
+            "h": 393
+          },
+          "module": "检测",
+          "evidence": "source=color:green",
+          "recognition_item": false
+        },
+        {
+          "image_id": "val_empty_aerial",
+          "split": "validation",
+          "item": "定位误检",
+          "expected": "无对应标注框",
+          "actual": {
+            "x": 1100,
+            "y": 747,
+            "w": 100,
+            "h": 22
+          },
+          "module": "检测",
+          "evidence": "source=color:yellow",
+          "recognition_item": false
+        },
+        {
+          "image_id": "val_empty_aerial",
+          "split": "validation",
+          "item": "定位误检",
+          "expected": "无对应标注框",
+          "actual": {
+            "x": 559,
+            "y": 784,
+            "w": 79,
+            "h": 15
+          },
+          "module": "检测",
+          "evidence": "source=color:yellow",
+          "recognition_item": false
+        }
+      ]
+    },
+    {
+      "image_id": "fin_ccpd_1",
+      "split": "final_test",
+      "relative_path": "data/raw/final_test/ccpd_demo_1.jpg",
+      "elapsed_s": 0.1581634799999847,
+      "has_plate": true,
+      "pred_count": 0,
+      "presence_correct": false,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "error_code": "no_plate",
+      "warnings": [
+        "第 1 个候选区域识别置信度低，按误检丢弃",
+        "第 2 个候选区域识别置信度低，按误检丢弃",
+        "第 3 个候选区域识别置信度低，按误检丢弃",
+        "第 4 个候选区域识别置信度低，按误检丢弃"
+      ],
+      "plates": [
+        {
+          "plate_id": "p1",
+          "recognition_item": true,
+          "expected": {
+            "box": {
+              "x": 180,
+              "y": 490,
+              "w": 230,
+              "h": 100
+            },
+            "number": "皖AUJ299",
+            "color": "blue",
+            "char_count": 7
+          },
+          "actual": null
+        }
+      ],
+      "failures": [
+        {
+          "image_id": "fin_ccpd_1",
+          "split": "final_test",
+          "item": "车牌是否存在",
+          "expected": true,
+          "actual": false,
+          "module": "集成过滤（D）",
+          "evidence": "第 1 个候选区域识别置信度低，按误检丢弃；第 2 个候选区域识别置信度低，按误检丢弃；第 3 个候选区域识别置信度低，按误检丢弃；第 4 个候选区域识别置信度低，按误检丢弃",
+          "recognition_item": false
+        },
+        {
+          "image_id": "fin_ccpd_1",
+          "split": "final_test",
+          "item": "定位",
+          "expected": {
+            "x": 180,
+            "y": 490,
+            "w": 230,
+            "h": 100
+          },
+          "actual": "未配上",
+          "module": "集成过滤（D）",
+          "evidence": "第 1 个候选区域识别置信度低，按误检丢弃；第 2 个候选区域识别置信度低，按误检丢弃；第 3 个候选区域识别置信度低，按误检丢弃；第 4 个候选区域识别置信度低，按误检丢弃",
+          "recognition_item": false
+        },
+        {
+          "image_id": "fin_ccpd_1",
+          "split": "final_test",
+          "item": "整牌（端到端）",
+          "expected": "皖AUJ299",
+          "actual": "",
+          "module": "集成过滤（D）",
+          "evidence": "没有配上的预测框，端到端整牌算错；不进入定位命中后的识别率。 第 1 个候选区域识别置信度低，按误检丢弃；第 2 个候选区域识别置信度低，按误检丢弃；第 3 个候选区域识别置信度低，按误检丢弃；第 4 个候选区域识别置信度低，按误检丢弃",
+          "recognition_item": true
+        }
+      ]
+    },
+    {
+      "image_id": "fin_ccpd_4",
+      "split": "final_test",
+      "relative_path": "data/raw/final_test/ccpd_demo_4.jpg",
+      "elapsed_s": 0.1753530650000812,
+      "has_plate": true,
+      "pred_count": 1,
+      "presence_correct": true,
+      "tp": 0,
+      "fp": 1,
+      "fn": 1,
+      "error_code": null,
+      "warnings": [
+        "第 1 个候选区域识别置信度低，按误检丢弃",
+        "第 2 个候选区域识别置信度低，按误检丢弃",
+        "第 3 个候选区域识别置信度低，按误检丢弃"
+      ],
+      "plates": [
+        {
+          "plate_id": "p1",
+          "recognition_item": true,
+          "expected": {
+            "box": {
+              "x": 170,
+              "y": 480,
+              "w": 240,
+              "h": 90
+            },
+            "number": "皖A256R2",
+            "color": "blue",
+            "char_count": 7
+          },
+          "actual": null
+        }
+      ],
+      "failures": [
+        {
+          "image_id": "fin_ccpd_4",
+          "split": "final_test",
+          "item": "定位",
+          "expected": {
+            "x": 170,
+            "y": 480,
+            "w": 240,
+            "h": 90
+          },
+          "actual": "未配上",
+          "module": "集成过滤（D）",
+          "evidence": "第 1 个候选区域识别置信度低，按误检丢弃；第 2 个候选区域识别置信度低，按误检丢弃；第 3 个候选区域识别置信度低，按误检丢弃",
+          "recognition_item": false
+        },
+        {
+          "image_id": "fin_ccpd_4",
+          "split": "final_test",
+          "item": "整牌（端到端）",
+          "expected": "皖A256R2",
+          "actual": "",
+          "module": "集成过滤（D）",
+          "evidence": "没有配上的预测框，端到端整牌算错；不进入定位命中后的识别率。 第 1 个候选区域识别置信度低，按误检丢弃；第 2 个候选区域识别置信度低，按误检丢弃；第 3 个候选区域识别置信度低，按误检丢弃",
+          "recognition_item": true
+        },
+        {
+          "image_id": "fin_ccpd_4",
+          "split": "final_test",
+          "item": "定位误检",
+          "expected": "无对应标注框",
+          "actual": {
+            "x": 658,
+            "y": 1071,
+            "w": 62,
+            "h": 35
+          },
+          "module": "检测",
+          "evidence": "source=color:yellow",
+          "recognition_item": false
+        }
+      ]
+    },
+    {
+      "image_id": "fin_green_rickshaw",
+      "split": "final_test",
+      "relative_path": "data/raw/final_test/green_rickshaw.jpg",
+      "elapsed_s": 0.2499785630000133,
+      "has_plate": true,
+      "pred_count": 3,
+      "presence_correct": true,
+      "tp": 1,
+      "fp": 2,
+      "fn": 0,
+      "error_code": null,
+      "warnings": [
+        "第 1 个候选区域识别置信度低，按误检丢弃"
+      ],
+      "plates": [
+        {
+          "plate_id": "p1",
+          "recognition_item": true,
+          "expected": {
+            "box": {
+              "x": 130,
+              "y": 240,
+              "w": 1160,
+              "h": 490
+            },
+            "number": "西城0414",
+            "color": "green",
+            "char_count": 6
+          },
+          "actual": {
+            "box": {
+              "x": 142,
+              "y": 281,
+              "w": 1175,
+              "h": 431
+            },
+            "iou": 0.8530283412954691,
+            "number": "晋冀0414",
+            "color": "green",
+            "char_count": 6,
+            "source": "color:green",
+            "status": "ok",
+            "segmentation_status": "count_abnormal",
+            "recognition_status": "needs_review"
+          }
+        }
+      ],
+      "failures": [
+        {
+          "image_id": "fin_green_rickshaw",
+          "split": "final_test",
+          "item": "逐字",
+          "expected": "西城0414",
+          "actual": "晋冀0414",
+          "module": "字符识别（C）",
+          "evidence": "recognition.status=needs_review text=晋冀0414；segmentation.status=count_abnormal count=6，字数与标注同为 6；错位 0:西->晋, 1:城->冀",
+          "recognition_item": true
+        },
+        {
+          "image_id": "fin_green_rickshaw",
+          "split": "final_test",
+          "item": "整牌",
+          "expected": "西城0414",
+          "actual": "晋冀0414",
+          "module": "字符识别（C）",
+          "evidence": "recognition.status=needs_review text=晋冀0414；segmentation.status=count_abnormal count=6，字数与标注同为 6",
+          "recognition_item": true
+        },
+        {
+          "image_id": "fin_green_rickshaw",
+          "split": "final_test",
+          "item": "定位误检",
+          "expected": "无对应标注框",
+          "actual": {
+            "x": 871,
+            "y": 202,
+            "w": 49,
+            "h": 14
+          },
+          "module": "检测",
+          "evidence": "source=color:yellow",
+          "recognition_item": false
+        },
+        {
+          "image_id": "fin_green_rickshaw",
+          "split": "final_test",
+          "item": "定位误检",
+          "expected": "无对应标注框",
+          "actual": {
+            "x": 0,
+            "y": 813,
+            "w": 1400,
+            "h": 237
+          },
+          "module": "检测",
+          "evidence": "source=color:yellow",
+          "recognition_item": false
+        }
+      ]
+    },
+    {
+      "image_id": "fin_yellow_shaanxi",
+      "split": "final_test",
+      "relative_path": "data/raw/final_test/yellow_shaanxi.jpg",
+      "elapsed_s": 0.10834590299987212,
+      "has_plate": true,
+      "pred_count": 1,
+      "presence_correct": true,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "error_code": null,
+      "warnings": [
+        "第 2 个候选区域识别置信度低，按误检丢弃"
+      ],
+      "plates": [
+        {
+          "plate_id": "p1",
+          "recognition_item": true,
+          "expected": {
+            "box": {
+              "x": 160,
+              "y": 220,
+              "w": 1080,
+              "h": 610
+            },
+            "number": "陕AA9087",
+            "color": "yellow",
+            "char_count": 7
+          },
+          "actual": {
+            "box": {
+              "x": 164,
+              "y": 248,
+              "w": 1140,
+              "h": 579
+            },
+            "iou": 0.8953059253638684,
+            "number": "A冀渝7",
+            "color": "yellow",
+            "char_count": 4,
+            "source": "color:yellow",
+            "status": "ok",
+            "segmentation_status": "count_abnormal",
+            "recognition_status": "needs_review"
+          }
+        }
+      ],
+      "failures": [
+        {
+          "image_id": "fin_yellow_shaanxi",
+          "split": "final_test",
+          "item": "字符数量",
+          "expected": 7,
+          "actual": 4,
+          "module": "字符分割（B）",
+          "evidence": "segmentation.count=4 status=count_abnormal message=分割出 4 个字符（常见为 7 或 8 个）",
+          "recognition_item": false
+        },
+        {
+          "image_id": "fin_yellow_shaanxi",
+          "split": "final_test",
+          "item": "逐字",
+          "expected": "陕AA9087",
+          "actual": "A冀渝7",
+          "module": "字符分割（B）",
+          "evidence": "segmentation.status=count_abnormal count=4；错位 0:陕->A, 1:A->冀, 2:A->渝, 3:9->7, 4:0->缺, 5:8->缺, 6:7->缺",
+          "recognition_item": true
+        },
+        {
+          "image_id": "fin_yellow_shaanxi",
+          "split": "final_test",
+          "item": "整牌",
+          "expected": "陕AA9087",
+          "actual": "A冀渝7",
+          "module": "字符分割（B）",
+          "evidence": "segmentation.status=count_abnormal count=4",
+          "recognition_item": true
+        }
+      ]
+    },
+    {
+      "image_id": "fin_military_hg",
+      "split": "final_test",
+      "relative_path": "data/raw/final_test/military_hg.jpg",
+      "elapsed_s": 0.012312603000054878,
+      "has_plate": true,
+      "pred_count": 0,
+      "presence_correct": false,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "error_code": "no_plate",
+      "warnings": [],
+      "plates": [
+        {
+          "plate_id": "p1",
+          "recognition_item": true,
+          "expected": {
+            "box": {
+              "x": 8,
+              "y": 6,
+              "w": 1384,
+              "h": 395
+            },
+            "number": "HG05015",
+            "color": "white",
+            "char_count": 7
+          },
+          "actual": null
+        }
+      ],
+      "failures": [
+        {
+          "image_id": "fin_military_hg",
+          "split": "final_test",
+          "item": "车牌是否存在",
+          "expected": true,
+          "actual": false,
+          "module": "检测",
+          "evidence": "未检测到车牌",
+          "recognition_item": false
+        },
+        {
+          "image_id": "fin_military_hg",
+          "split": "final_test",
+          "item": "定位",
+          "expected": {
+            "x": 8,
+            "y": 6,
+            "w": 1384,
+            "h": 395
+          },
+          "actual": "未配上",
+          "module": "检测",
+          "evidence": "未检测到车牌",
+          "recognition_item": false
+        },
+        {
+          "image_id": "fin_military_hg",
+          "split": "final_test",
+          "item": "整牌（端到端）",
+          "expected": "HG05015",
+          "actual": "",
+          "module": "检测",
+          "evidence": "没有配上的预测框，端到端整牌算错；不进入定位命中后的识别率。 未检测到车牌",
+          "recognition_item": true
+        }
+      ]
+    },
+    {
+      "image_id": "fin_diplomatic",
+      "split": "final_test",
+      "relative_path": "data/raw/final_test/diplomatic_132.jpg",
+      "elapsed_s": 0.09330520799994702,
+      "has_plate": true,
+      "pred_count": 0,
+      "presence_correct": false,
+      "tp": 0,
+      "fp": 0,
+      "fn": 1,
+      "error_code": "no_plate",
+      "warnings": [
+        "第 1 个候选区域识别置信度低，按误检丢弃",
+        "第 2 个候选区域识别置信度低，按误检丢弃"
+      ],
+      "plates": [
+        {
+          "plate_id": "p1",
+          "recognition_item": true,
+          "expected": {
+            "box": {
+              "x": 10,
+              "y": 8,
+              "w": 1380,
+              "h": 464
+            },
+            "number": "使132003",
+            "color": "black",
+            "char_count": 7
+          },
+          "actual": null
+        }
+      ],
+      "failures": [
+        {
+          "image_id": "fin_diplomatic",
+          "split": "final_test",
+          "item": "车牌是否存在",
+          "expected": true,
+          "actual": false,
+          "module": "集成过滤（D）",
+          "evidence": "第 1 个候选区域识别置信度低，按误检丢弃；第 2 个候选区域识别置信度低，按误检丢弃",
+          "recognition_item": false
+        },
+        {
+          "image_id": "fin_diplomatic",
+          "split": "final_test",
+          "item": "定位",
+          "expected": {
+            "x": 10,
+            "y": 8,
+            "w": 1380,
+            "h": 464
+          },
+          "actual": "未配上",
+          "module": "集成过滤（D）",
+          "evidence": "第 1 个候选区域识别置信度低，按误检丢弃；第 2 个候选区域识别置信度低，按误检丢弃",
+          "recognition_item": false
+        },
+        {
+          "image_id": "fin_diplomatic",
+          "split": "final_test",
+          "item": "整牌（端到端）",
+          "expected": "使132003",
+          "actual": "",
+          "module": "集成过滤（D）",
+          "evidence": "没有配上的预测框，端到端整牌算错；不进入定位命中后的识别率。 第 1 个候选区域识别置信度低，按误检丢弃；第 2 个候选区域识别置信度低，按误检丢弃",
+          "recognition_item": true
+        }
+      ]
+    },
+    {
+      "image_id": "fin_green_large",
+      "split": "final_test",
+      "relative_path": "data/raw/final_test/green_large_diagram.jpg",
+      "elapsed_s": 0.088190066000152,
+      "has_plate": true,
+      "pred_count": 2,
+      "presence_correct": true,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "error_code": null,
+      "warnings": [],
+      "plates": [
+        {
+          "plate_id": "p1",
+          "recognition_item": true,
+          "expected": {
+            "box": {
+              "x": 4,
+              "y": 2,
+              "w": 392,
+              "h": 118
+            },
+            "number": "粤B12345D",
+            "color": "green",
+            "char_count": 8
+          },
+          "actual": {
+            "box": {
+              "x": 101,
+              "y": 12,
+              "w": 292,
+              "h": 105
+            },
+            "iou": 0.6628329297820823,
+            "number": "12345D",
+            "color": "green",
+            "char_count": 6,
+            "source": "color:green",
+            "status": "ok",
+            "segmentation_status": "count_abnormal",
+            "recognition_status": "needs_review"
+          }
+        },
+        {
+          "plate_id": "p2",
+          "recognition_item": true,
+          "expected": {
+            "box": {
+              "x": 4,
+              "y": 128,
+              "w": 392,
+              "h": 118
+            },
+            "number": "粤B12345F",
+            "color": "green",
+            "char_count": 8
+          },
+          "actual": {
+            "box": {
+              "x": 103,
+              "y": 140,
+              "w": 297,
+              "h": 101
+            },
+            "iou": 0.6342263180454351,
+            "number": "12345F",
+            "color": "green",
+            "char_count": 6,
+            "source": "color:green",
+            "status": "ok",
+            "segmentation_status": "count_abnormal",
+            "recognition_status": "ok"
+          }
+        }
+      ],
+      "failures": [
+        {
+          "image_id": "fin_green_large",
+          "split": "final_test",
+          "item": "字符数量",
+          "expected": 8,
+          "actual": 6,
+          "module": "字符分割（B）",
+          "evidence": "segmentation.count=6 status=count_abnormal message=分割出 6 个字符（常见为 7 或 8 个）",
+          "recognition_item": false
+        },
+        {
+          "image_id": "fin_green_large",
+          "split": "final_test",
+          "item": "逐字",
+          "expected": "粤B12345D",
+          "actual": "12345D",
+          "module": "字符分割（B）",
+          "evidence": "segmentation.status=count_abnormal count=6；错位 0:粤->1, 1:B->2, 2:1->3, 3:2->4, 4:3->5, 5:4->D, 6:5->缺, 7:D->缺",
+          "recognition_item": true
+        },
+        {
+          "image_id": "fin_green_large",
+          "split": "final_test",
+          "item": "整牌",
+          "expected": "粤B12345D",
+          "actual": "12345D",
+          "module": "字符分割（B）",
+          "evidence": "segmentation.status=count_abnormal count=6",
+          "recognition_item": true
+        },
+        {
+          "image_id": "fin_green_large",
+          "split": "final_test",
+          "item": "字符数量",
+          "expected": 8,
+          "actual": 6,
+          "module": "字符分割（B）",
+          "evidence": "segmentation.count=6 status=count_abnormal message=分割出 6 个字符（常见为 7 或 8 个）",
+          "recognition_item": false
+        },
+        {
+          "image_id": "fin_green_large",
+          "split": "final_test",
+          "item": "逐字",
+          "expected": "粤B12345F",
+          "actual": "12345F",
+          "module": "字符分割（B）",
+          "evidence": "segmentation.status=count_abnormal count=6；错位 0:粤->1, 1:B->2, 2:1->3, 3:2->4, 4:3->5, 5:4->F, 6:5->缺, 7:F->缺",
+          "recognition_item": true
+        },
+        {
+          "image_id": "fin_green_large",
+          "split": "final_test",
+          "item": "整牌",
+          "expected": "粤B12345F",
+          "actual": "12345F",
+          "module": "字符分割（B）",
+          "evidence": "segmentation.status=count_abnormal count=6",
+          "recognition_item": true
+        }
+      ]
+    },
+    {
+      "image_id": "fin_blur_motorcycle",
+      "split": "final_test",
+      "relative_path": "data/raw/final_test/blur_motorcycle.jpg",
+      "elapsed_s": 0.2529195439999512,
+      "has_plate": true,
+      "pred_count": 2,
+      "presence_correct": true,
+      "tp": 0,
+      "fp": 2,
+      "fn": 1,
+      "error_code": null,
+      "warnings": [
+        "第 3 个候选区域识别置信度低，按误检丢弃",
+        "第 4 个候选区域识别置信度低，按误检丢弃"
+      ],
+      "plates": [
+        {
+          "plate_id": "p1",
+          "recognition_item": false,
+          "expected": {
+            "box": {
+              "x": 70,
+              "y": 720,
+              "w": 130,
+              "h": 100
+            },
+            "number": "",
+            "color": "white",
+            "char_count": 0
+          },
+          "actual": null
+        }
+      ],
+      "failures": [
+        {
+          "image_id": "fin_blur_motorcycle",
+          "split": "final_test",
+          "item": "定位",
+          "expected": {
+            "x": 70,
+            "y": 720,
+            "w": 130,
+            "h": 100
+          },
+          "actual": "未配上",
+          "module": "集成过滤（D）",
+          "evidence": "第 3 个候选区域识别置信度低，按误检丢弃；第 4 个候选区域识别置信度低，按误检丢弃",
+          "recognition_item": false
+        },
+        {
+          "image_id": "fin_blur_motorcycle",
+          "split": "final_test",
+          "item": "定位误检",
+          "expected": "无对应标注框",
+          "actual": {
+            "x": 0,
+            "y": 0,
+            "w": 1400,
+            "h": 442
+          },
+          "module": "检测",
+          "evidence": "source=color:green",
+          "recognition_item": false
+        },
+        {
+          "image_id": "fin_blur_motorcycle",
+          "split": "final_test",
+          "item": "定位误检",
+          "expected": "无对应标注框",
+          "actual": {
+            "x": 240,
+            "y": 406,
+            "w": 90,
+            "h": 32
+          },
+          "module": "检测",
+          "evidence": "source=color:yellow",
+          "recognition_item": false
+        }
+      ]
+    },
+    {
+      "image_id": "fin_empty_lot",
+      "split": "final_test",
+      "relative_path": "data/raw/final_test/empty_chelungpu.jpg",
+      "elapsed_s": 0.1970575570001074,
+      "has_plate": false,
+      "pred_count": 3,
+      "presence_correct": false,
+      "tp": 0,
+      "fp": 3,
+      "fn": 0,
+      "error_code": null,
+      "warnings": [
+        "第 2 个候选区域识别置信度低，按误检丢弃"
+      ],
+      "plates": [],
+      "failures": [
+        {
+          "image_id": "fin_empty_lot",
+          "split": "final_test",
+          "item": "车牌是否存在",
+          "expected": false,
+          "actual": true,
+          "module": "检测",
+          "evidence": "source=color:green,color:green,color:yellow；第 2 个候选区域识别置信度低，按误检丢弃",
+          "recognition_item": false
+        },
+        {
+          "image_id": "fin_empty_lot",
+          "split": "final_test",
+          "item": "定位误检",
+          "expected": "无对应标注框",
+          "actual": {
+            "x": 872,
+            "y": 0,
+            "w": 69,
+            "h": 27
+          },
+          "module": "检测",
+          "evidence": "source=color:green",
+          "recognition_item": false
+        },
+        {
+          "image_id": "fin_empty_lot",
+          "split": "final_test",
+          "item": "定位误检",
+          "expected": "无对应标注框",
+          "actual": {
+            "x": 783,
+            "y": 478,
+            "w": 417,
+            "h": 148
+          },
+          "module": "检测",
+          "evidence": "source=color:green",
+          "recognition_item": false
+        },
+        {
+          "image_id": "fin_empty_lot",
+          "split": "final_test",
+          "item": "定位误检",
+          "expected": "无对应标注框",
+          "actual": {
+            "x": 273,
+            "y": 534,
+            "w": 71,
+            "h": 22
+          },
+          "module": "检测",
+          "evidence": "source=color:yellow",
+          "recognition_item": false
+        }
+      ]
+    }
+  ],
+  "failures": [
+    {
+      "image_id": "val_ccpd_0",
+      "split": "validation",
+      "item": "车牌是否存在",
+      "expected": true,
+      "actual": false,
+      "module": "集成过滤（D）",
+      "evidence": "第 1 个候选区域识别置信度低，按误检丢弃；第 2 个候选区域识别置信度低，按误检丢弃；第 3 个候选区域识别置信度低，按误检丢弃；第 4 个候选区域识别置信度低，按误检丢弃",
+      "recognition_item": false
+    },
+    {
+      "image_id": "val_ccpd_0",
+      "split": "validation",
+      "item": "定位",
+      "expected": {
+        "x": 240,
+        "y": 490,
+        "w": 240,
+        "h": 100
+      },
+      "actual": "未配上",
+      "module": "集成过滤（D）",
+      "evidence": "第 1 个候选区域识别置信度低，按误检丢弃；第 2 个候选区域识别置信度低，按误检丢弃；第 3 个候选区域识别置信度低，按误检丢弃；第 4 个候选区域识别置信度低，按误检丢弃",
+      "recognition_item": false
+    },
+    {
+      "image_id": "val_ccpd_0",
+      "split": "validation",
+      "item": "整牌（端到端）",
+      "expected": "皖A195K9",
+      "actual": "",
+      "module": "集成过滤（D）",
+      "evidence": "没有配上的预测框，端到端整牌算错；不进入定位命中后的识别率。 第 1 个候选区域识别置信度低，按误检丢弃；第 2 个候选区域识别置信度低，按误检丢弃；第 3 个候选区域识别置信度低，按误检丢弃；第 4 个候选区域识别置信度低，按误检丢弃",
+      "recognition_item": true
+    },
+    {
+      "image_id": "val_diplomatic",
+      "split": "validation",
+      "item": "车牌是否存在",
+      "expected": true,
+      "actual": false,
+      "module": "集成过滤（D）",
+      "evidence": "第 1 个候选区域识别置信度低，按误检丢弃；第 2 个候选区域识别置信度低，按误检丢弃；第 3 个候选区域识别置信度低，按误检丢弃；第 4 个候选区域识别置信度低，按误检丢弃",
+      "recognition_item": false
+    },
+    {
+      "image_id": "val_diplomatic",
+      "split": "validation",
+      "item": "定位",
+      "expected": {
+        "x": 400,
+        "y": 340,
+        "w": 560,
+        "h": 210
+      },
+      "actual": "未配上",
+      "module": "集成过滤（D）",
+      "evidence": "第 1 个候选区域识别置信度低，按误检丢弃；第 2 个候选区域识别置信度低，按误检丢弃；第 3 个候选区域识别置信度低，按误检丢弃；第 4 个候选区域识别置信度低，按误检丢弃",
+      "recognition_item": false
+    },
+    {
+      "image_id": "val_diplomatic",
+      "split": "validation",
+      "item": "整牌（端到端）",
+      "expected": "127002使",
+      "actual": "",
+      "module": "集成过滤（D）",
+      "evidence": "没有配上的预测框，端到端整牌算错；不进入定位命中后的识别率。 第 1 个候选区域识别置信度低，按误检丢弃；第 2 个候选区域识别置信度低，按误检丢弃；第 3 个候选区域识别置信度低，按误检丢弃；第 4 个候选区域识别置信度低，按误检丢弃",
+      "recognition_item": true
+    },
+    {
+      "image_id": "val_yellow_bike",
+      "split": "validation",
+      "item": "定位",
+      "expected": {
+        "x": 390,
+        "y": 300,
+        "w": 680,
+        "h": 620
+      },
+      "actual": "未配上",
+      "module": "集成过滤（D）",
+      "evidence": "第 2 个候选区域识别置信度低，按误检丢弃；第 4 个候选区域识别置信度低，按误检丢弃",
+      "recognition_item": false
+    },
+    {
+      "image_id": "val_yellow_bike",
+      "split": "validation",
+      "item": "整牌（端到端）",
+      "expected": "京东城0003934",
+      "actual": "",
+      "module": "集成过滤（D）",
+      "evidence": "没有配上的预测框，端到端整牌算错；不进入定位命中后的识别率。 第 2 个候选区域识别置信度低，按误检丢弃；第 4 个候选区域识别置信度低，按误检丢弃",
+      "recognition_item": true
+    },
+    {
+      "image_id": "val_yellow_bike",
+      "split": "validation",
+      "item": "定位误检",
+      "expected": "无对应标注框",
+      "actual": {
+        "x": 858,
+        "y": 0,
+        "w": 51,
+        "h": 15
+      },
+      "module": "检测",
+      "evidence": "source=color:yellow",
+      "recognition_item": false
+    },
+    {
+      "image_id": "val_yellow_bike",
+      "split": "validation",
+      "item": "定位误检",
+      "expected": "无对应标注框",
+      "actual": {
+        "x": 473,
+        "y": 589,
+        "w": 560,
+        "h": 231
+      },
+      "module": "检测",
+      "evidence": "source=gradient",
+      "recognition_item": false
+    },
+    {
+      "image_id": "val_green_shanghai",
+      "split": "validation",
+      "item": "定位",
+      "expected": {
+        "x": 400,
+        "y": 600,
+        "w": 430,
+        "h": 160
+      },
+      "actual": "未配上",
+      "module": "集成过滤（D）",
+      "evidence": "第 1 个候选区域识别置信度低，按误检丢弃；第 2 个候选区域识别置信度低，按误检丢弃；第 4 个候选区域识别置信度低，按误检丢弃",
+      "recognition_item": false
+    },
+    {
+      "image_id": "val_green_shanghai",
+      "split": "validation",
+      "item": "整牌（端到端）",
+      "expected": "沪AF22933",
+      "actual": "",
+      "module": "集成过滤（D）",
+      "evidence": "没有配上的预测框，端到端整牌算错；不进入定位命中后的识别率。 第 1 个候选区域识别置信度低，按误检丢弃；第 2 个候选区域识别置信度低，按误检丢弃；第 4 个候选区域识别置信度低，按误检丢弃",
+      "recognition_item": true
+    },
+    {
+      "image_id": "val_green_shanghai",
+      "split": "validation",
+      "item": "定位误检",
+      "expected": "无对应标注框",
+      "actual": {
+        "x": 0,
+        "y": 517,
+        "w": 39,
+        "h": 17
+      },
+      "module": "检测",
+      "evidence": "source=color:blue",
+      "recognition_item": false
+    },
+    {
+      "image_id": "val_multi_hk",
+      "split": "validation",
+      "item": "字符数量",
+      "expected": 6,
+      "actual": 3,
+      "module": "字符分割（B）",
+      "evidence": "segmentation.count=3 status=count_abnormal message=分割出 3 个字符（常见为 7 或 8 个）",
+      "recognition_item": false
+    },
+    {
+      "image_id": "val_multi_hk",
+      "split": "validation",
+      "item": "逐字",
+      "expected": "ZM1433",
+      "actual": "1A豫",
+      "module": "字符分割（B）",
+      "evidence": "segmentation.status=count_abnormal count=3；错位 0:Z->1, 1:M->A, 2:1->豫, 3:4->缺, 4:3->缺, 5:3->缺",
+      "recognition_item": true
+    },
+    {
+      "image_id": "val_multi_hk",
+      "split": "validation",
+      "item": "整牌",
+      "expected": "ZM1433",
+      "actual": "1A豫",
+      "module": "字符分割（B）",
+      "evidence": "segmentation.status=count_abnormal count=3",
+      "recognition_item": true
+    },
+    {
+      "image_id": "val_multi_hk",
+      "split": "validation",
+      "item": "定位",
+      "expected": {
+        "x": 600,
+        "y": 540,
+        "w": 300,
+        "h": 95
+      },
+      "actual": "未配上",
+      "module": "集成过滤（D）",
+      "evidence": "第 1 个候选区域识别置信度低，按误检丢弃",
+      "recognition_item": false
+    },
+    {
+      "image_id": "val_multi_hk",
+      "split": "validation",
+      "item": "整牌（端到端）",
+      "expected": "粤ZC839澳",
+      "actual": "",
+      "module": "集成过滤（D）",
+      "evidence": "没有配上的预测框，端到端整牌算错；不进入定位命中后的识别率。 第 1 个候选区域识别置信度低，按误检丢弃",
+      "recognition_item": true
+    },
+    {
+      "image_id": "val_multi_hk",
+      "split": "validation",
+      "item": "定位",
+      "expected": {
+        "x": 610,
+        "y": 625,
+        "w": 285,
+        "h": 57
+      },
+      "actual": "未配上",
+      "module": "集成过滤（D）",
+      "evidence": "第 1 个候选区域识别置信度低，按误检丢弃",
+      "recognition_item": false
+    },
+    {
+      "image_id": "val_multi_hk",
+      "split": "validation",
+      "item": "整牌（端到端）",
+      "expected": "MJ2882",
+      "actual": "",
+      "module": "集成过滤（D）",
+      "evidence": "没有配上的预测框，端到端整牌算错；不进入定位命中后的识别率。 第 1 个候选区域识别置信度低，按误检丢弃",
+      "recognition_item": true
+    },
+    {
+      "image_id": "val_multi_hk",
+      "split": "validation",
+      "item": "定位",
+      "expected": {
+        "x": 1260,
+        "y": 455,
+        "w": 140,
+        "h": 100
+      },
+      "actual": "未配上",
+      "module": "集成过滤（D）",
+      "evidence": "第 1 个候选区域识别置信度低，按误检丢弃",
+      "recognition_item": false
+    },
+    {
+      "image_id": "val_multi_hk",
+      "split": "validation",
+      "item": "定位误检",
+      "expected": "无对应标注框",
+      "actual": {
+        "x": 278,
+        "y": 282,
+        "w": 77,
+        "h": 32
+      },
+      "module": "检测",
+      "evidence": "source=color:yellow",
+      "recognition_item": false
+    },
+    {
+      "image_id": "val_multi_hk",
+      "split": "validation",
+      "item": "定位误检",
+      "expected": "无对应标注框",
+      "actual": {
+        "x": 602,
+        "y": 566,
+        "w": 144,
+        "h": 55
+      },
+      "module": "检测",
+      "evidence": "source=color:blue",
+      "recognition_item": false
+    },
+    {
+      "image_id": "val_military_glare",
+      "split": "validation",
+      "item": "定位",
+      "expected": {
+        "x": 500,
+        "y": 760,
+        "w": 400,
+        "h": 140
+      },
+      "actual": "未配上",
+      "module": "集成过滤（D）",
+      "evidence": "第 1 个候选区域识别置信度低，按误检丢弃；第 2 个候选区域识别置信度低，按误检丢弃；第 4 个候选区域识别置信度低，按误检丢弃",
+      "recognition_item": false
+    },
+    {
+      "image_id": "val_military_glare",
+      "split": "validation",
+      "item": "整牌（端到端）",
+      "expected": "VA01940",
+      "actual": "",
+      "module": "集成过滤（D）",
+      "evidence": "没有配上的预测框，端到端整牌算错；不进入定位命中后的识别率。 第 1 个候选区域识别置信度低，按误检丢弃；第 2 个候选区域识别置信度低，按误检丢弃；第 4 个候选区域识别置信度低，按误检丢弃",
+      "recognition_item": true
+    },
+    {
+      "image_id": "val_military_glare",
+      "split": "validation",
+      "item": "定位误检",
+      "expected": "无对应标注框",
+      "actual": {
+        "x": 304,
+        "y": 92,
+        "w": 120,
+        "h": 37
+      },
+      "module": "检测",
+      "evidence": "source=color:blue",
+      "recognition_item": false
+    },
+    {
+      "image_id": "val_blur_california",
+      "split": "validation",
+      "item": "车牌是否存在",
+      "expected": true,
+      "actual": false,
+      "module": "检测",
+      "evidence": "未检测到车牌",
+      "recognition_item": false
+    },
+    {
+      "image_id": "val_blur_california",
+      "split": "validation",
+      "item": "定位",
+      "expected": {
+        "x": 0,
+        "y": 0,
+        "w": 327,
+        "h": 75
+      },
+      "actual": "未配上",
+      "module": "检测",
+      "evidence": "未检测到车牌",
+      "recognition_item": false
+    },
+    {
+      "image_id": "val_empty_aerial",
+      "split": "validation",
+      "item": "车牌是否存在",
+      "expected": false,
+      "actual": true,
+      "module": "检测",
+      "evidence": "source=color:green,color:yellow,color:yellow",
+      "recognition_item": false
+    },
+    {
+      "image_id": "val_empty_aerial",
+      "split": "validation",
+      "item": "定位误检",
+      "expected": "无对应标注框",
+      "actual": {
+        "x": 203,
+        "y": 154,
+        "w": 926,
+        "h": 393
+      },
+      "module": "检测",
+      "evidence": "source=color:green",
+      "recognition_item": false
+    },
+    {
+      "image_id": "val_empty_aerial",
+      "split": "validation",
+      "item": "定位误检",
+      "expected": "无对应标注框",
+      "actual": {
+        "x": 1100,
+        "y": 747,
+        "w": 100,
+        "h": 22
+      },
+      "module": "检测",
+      "evidence": "source=color:yellow",
+      "recognition_item": false
+    },
+    {
+      "image_id": "val_empty_aerial",
+      "split": "validation",
+      "item": "定位误检",
+      "expected": "无对应标注框",
+      "actual": {
+        "x": 559,
+        "y": 784,
+        "w": 79,
+        "h": 15
+      },
+      "module": "检测",
+      "evidence": "source=color:yellow",
+      "recognition_item": false
+    },
+    {
+      "image_id": "fin_ccpd_1",
+      "split": "final_test",
+      "item": "车牌是否存在",
+      "expected": true,
+      "actual": false,
+      "module": "集成过滤（D）",
+      "evidence": "第 1 个候选区域识别置信度低，按误检丢弃；第 2 个候选区域识别置信度低，按误检丢弃；第 3 个候选区域识别置信度低，按误检丢弃；第 4 个候选区域识别置信度低，按误检丢弃",
+      "recognition_item": false
+    },
+    {
+      "image_id": "fin_ccpd_1",
+      "split": "final_test",
+      "item": "定位",
+      "expected": {
+        "x": 180,
+        "y": 490,
+        "w": 230,
+        "h": 100
+      },
+      "actual": "未配上",
+      "module": "集成过滤（D）",
+      "evidence": "第 1 个候选区域识别置信度低，按误检丢弃；第 2 个候选区域识别置信度低，按误检丢弃；第 3 个候选区域识别置信度低，按误检丢弃；第 4 个候选区域识别置信度低，按误检丢弃",
+      "recognition_item": false
+    },
+    {
+      "image_id": "fin_ccpd_1",
+      "split": "final_test",
+      "item": "整牌（端到端）",
+      "expected": "皖AUJ299",
+      "actual": "",
+      "module": "集成过滤（D）",
+      "evidence": "没有配上的预测框，端到端整牌算错；不进入定位命中后的识别率。 第 1 个候选区域识别置信度低，按误检丢弃；第 2 个候选区域识别置信度低，按误检丢弃；第 3 个候选区域识别置信度低，按误检丢弃；第 4 个候选区域识别置信度低，按误检丢弃",
+      "recognition_item": true
+    },
+    {
+      "image_id": "fin_ccpd_4",
+      "split": "final_test",
+      "item": "定位",
+      "expected": {
+        "x": 170,
+        "y": 480,
+        "w": 240,
+        "h": 90
+      },
+      "actual": "未配上",
+      "module": "集成过滤（D）",
+      "evidence": "第 1 个候选区域识别置信度低，按误检丢弃；第 2 个候选区域识别置信度低，按误检丢弃；第 3 个候选区域识别置信度低，按误检丢弃",
+      "recognition_item": false
+    },
+    {
+      "image_id": "fin_ccpd_4",
+      "split": "final_test",
+      "item": "整牌（端到端）",
+      "expected": "皖A256R2",
+      "actual": "",
+      "module": "集成过滤（D）",
+      "evidence": "没有配上的预测框，端到端整牌算错；不进入定位命中后的识别率。 第 1 个候选区域识别置信度低，按误检丢弃；第 2 个候选区域识别置信度低，按误检丢弃；第 3 个候选区域识别置信度低，按误检丢弃",
+      "recognition_item": true
+    },
+    {
+      "image_id": "fin_ccpd_4",
+      "split": "final_test",
+      "item": "定位误检",
+      "expected": "无对应标注框",
+      "actual": {
+        "x": 658,
+        "y": 1071,
+        "w": 62,
+        "h": 35
+      },
+      "module": "检测",
+      "evidence": "source=color:yellow",
+      "recognition_item": false
+    },
+    {
+      "image_id": "fin_green_rickshaw",
+      "split": "final_test",
+      "item": "逐字",
+      "expected": "西城0414",
+      "actual": "晋冀0414",
+      "module": "字符识别（C）",
+      "evidence": "recognition.status=needs_review text=晋冀0414；segmentation.status=count_abnormal count=6，字数与标注同为 6；错位 0:西->晋, 1:城->冀",
+      "recognition_item": true
+    },
+    {
+      "image_id": "fin_green_rickshaw",
+      "split": "final_test",
+      "item": "整牌",
+      "expected": "西城0414",
+      "actual": "晋冀0414",
+      "module": "字符识别（C）",
+      "evidence": "recognition.status=needs_review text=晋冀0414；segmentation.status=count_abnormal count=6，字数与标注同为 6",
+      "recognition_item": true
+    },
+    {
+      "image_id": "fin_green_rickshaw",
+      "split": "final_test",
+      "item": "定位误检",
+      "expected": "无对应标注框",
+      "actual": {
+        "x": 871,
+        "y": 202,
+        "w": 49,
+        "h": 14
+      },
+      "module": "检测",
+      "evidence": "source=color:yellow",
+      "recognition_item": false
+    },
+    {
+      "image_id": "fin_green_rickshaw",
+      "split": "final_test",
+      "item": "定位误检",
+      "expected": "无对应标注框",
+      "actual": {
+        "x": 0,
+        "y": 813,
+        "w": 1400,
+        "h": 237
+      },
+      "module": "检测",
+      "evidence": "source=color:yellow",
+      "recognition_item": false
+    },
+    {
+      "image_id": "fin_yellow_shaanxi",
+      "split": "final_test",
+      "item": "字符数量",
+      "expected": 7,
+      "actual": 4,
+      "module": "字符分割（B）",
+      "evidence": "segmentation.count=4 status=count_abnormal message=分割出 4 个字符（常见为 7 或 8 个）",
+      "recognition_item": false
+    },
+    {
+      "image_id": "fin_yellow_shaanxi",
+      "split": "final_test",
+      "item": "逐字",
+      "expected": "陕AA9087",
+      "actual": "A冀渝7",
+      "module": "字符分割（B）",
+      "evidence": "segmentation.status=count_abnormal count=4；错位 0:陕->A, 1:A->冀, 2:A->渝, 3:9->7, 4:0->缺, 5:8->缺, 6:7->缺",
+      "recognition_item": true
+    },
+    {
+      "image_id": "fin_yellow_shaanxi",
+      "split": "final_test",
+      "item": "整牌",
+      "expected": "陕AA9087",
+      "actual": "A冀渝7",
+      "module": "字符分割（B）",
+      "evidence": "segmentation.status=count_abnormal count=4",
+      "recognition_item": true
+    },
+    {
+      "image_id": "fin_military_hg",
+      "split": "final_test",
+      "item": "车牌是否存在",
+      "expected": true,
+      "actual": false,
+      "module": "检测",
+      "evidence": "未检测到车牌",
+      "recognition_item": false
+    },
+    {
+      "image_id": "fin_military_hg",
+      "split": "final_test",
+      "item": "定位",
+      "expected": {
+        "x": 8,
+        "y": 6,
+        "w": 1384,
+        "h": 395
+      },
+      "actual": "未配上",
+      "module": "检测",
+      "evidence": "未检测到车牌",
+      "recognition_item": false
+    },
+    {
+      "image_id": "fin_military_hg",
+      "split": "final_test",
+      "item": "整牌（端到端）",
+      "expected": "HG05015",
+      "actual": "",
+      "module": "检测",
+      "evidence": "没有配上的预测框，端到端整牌算错；不进入定位命中后的识别率。 未检测到车牌",
+      "recognition_item": true
+    },
+    {
+      "image_id": "fin_diplomatic",
+      "split": "final_test",
+      "item": "车牌是否存在",
+      "expected": true,
+      "actual": false,
+      "module": "集成过滤（D）",
+      "evidence": "第 1 个候选区域识别置信度低，按误检丢弃；第 2 个候选区域识别置信度低，按误检丢弃",
+      "recognition_item": false
+    },
+    {
+      "image_id": "fin_diplomatic",
+      "split": "final_test",
+      "item": "定位",
+      "expected": {
+        "x": 10,
+        "y": 8,
+        "w": 1380,
+        "h": 464
+      },
+      "actual": "未配上",
+      "module": "集成过滤（D）",
+      "evidence": "第 1 个候选区域识别置信度低，按误检丢弃；第 2 个候选区域识别置信度低，按误检丢弃",
+      "recognition_item": false
+    },
+    {
+      "image_id": "fin_diplomatic",
+      "split": "final_test",
+      "item": "整牌（端到端）",
+      "expected": "使132003",
+      "actual": "",
+      "module": "集成过滤（D）",
+      "evidence": "没有配上的预测框，端到端整牌算错；不进入定位命中后的识别率。 第 1 个候选区域识别置信度低，按误检丢弃；第 2 个候选区域识别置信度低，按误检丢弃",
+      "recognition_item": true
+    },
+    {
+      "image_id": "fin_green_large",
+      "split": "final_test",
+      "item": "字符数量",
+      "expected": 8,
+      "actual": 6,
+      "module": "字符分割（B）",
+      "evidence": "segmentation.count=6 status=count_abnormal message=分割出 6 个字符（常见为 7 或 8 个）",
+      "recognition_item": false
+    },
+    {
+      "image_id": "fin_green_large",
+      "split": "final_test",
+      "item": "逐字",
+      "expected": "粤B12345D",
+      "actual": "12345D",
+      "module": "字符分割（B）",
+      "evidence": "segmentation.status=count_abnormal count=6；错位 0:粤->1, 1:B->2, 2:1->3, 3:2->4, 4:3->5, 5:4->D, 6:5->缺, 7:D->缺",
+      "recognition_item": true
+    },
+    {
+      "image_id": "fin_green_large",
+      "split": "final_test",
+      "item": "整牌",
+      "expected": "粤B12345D",
+      "actual": "12345D",
+      "module": "字符分割（B）",
+      "evidence": "segmentation.status=count_abnormal count=6",
+      "recognition_item": true
+    },
+    {
+      "image_id": "fin_green_large",
+      "split": "final_test",
+      "item": "字符数量",
+      "expected": 8,
+      "actual": 6,
+      "module": "字符分割（B）",
+      "evidence": "segmentation.count=6 status=count_abnormal message=分割出 6 个字符（常见为 7 或 8 个）",
+      "recognition_item": false
+    },
+    {
+      "image_id": "fin_green_large",
+      "split": "final_test",
+      "item": "逐字",
+      "expected": "粤B12345F",
+      "actual": "12345F",
+      "module": "字符分割（B）",
+      "evidence": "segmentation.status=count_abnormal count=6；错位 0:粤->1, 1:B->2, 2:1->3, 3:2->4, 4:3->5, 5:4->F, 6:5->缺, 7:F->缺",
+      "recognition_item": true
+    },
+    {
+      "image_id": "fin_green_large",
+      "split": "final_test",
+      "item": "整牌",
+      "expected": "粤B12345F",
+      "actual": "12345F",
+      "module": "字符分割（B）",
+      "evidence": "segmentation.status=count_abnormal count=6",
+      "recognition_item": true
+    },
+    {
+      "image_id": "fin_blur_motorcycle",
+      "split": "final_test",
+      "item": "定位",
+      "expected": {
+        "x": 70,
+        "y": 720,
+        "w": 130,
+        "h": 100
+      },
+      "actual": "未配上",
+      "module": "集成过滤（D）",
+      "evidence": "第 3 个候选区域识别置信度低，按误检丢弃；第 4 个候选区域识别置信度低，按误检丢弃",
+      "recognition_item": false
+    },
+    {
+      "image_id": "fin_blur_motorcycle",
+      "split": "final_test",
+      "item": "定位误检",
+      "expected": "无对应标注框",
+      "actual": {
+        "x": 0,
+        "y": 0,
+        "w": 1400,
+        "h": 442
+      },
+      "module": "检测",
+      "evidence": "source=color:green",
+      "recognition_item": false
+    },
+    {
+      "image_id": "fin_blur_motorcycle",
+      "split": "final_test",
+      "item": "定位误检",
+      "expected": "无对应标注框",
+      "actual": {
+        "x": 240,
+        "y": 406,
+        "w": 90,
+        "h": 32
+      },
+      "module": "检测",
+      "evidence": "source=color:yellow",
+      "recognition_item": false
+    },
+    {
+      "image_id": "fin_empty_lot",
+      "split": "final_test",
+      "item": "车牌是否存在",
+      "expected": false,
+      "actual": true,
+      "module": "检测",
+      "evidence": "source=color:green,color:green,color:yellow；第 2 个候选区域识别置信度低，按误检丢弃",
+      "recognition_item": false
+    },
+    {
+      "image_id": "fin_empty_lot",
+      "split": "final_test",
+      "item": "定位误检",
+      "expected": "无对应标注框",
+      "actual": {
+        "x": 872,
+        "y": 0,
+        "w": 69,
+        "h": 27
+      },
+      "module": "检测",
+      "evidence": "source=color:green",
+      "recognition_item": false
+    },
+    {
+      "image_id": "fin_empty_lot",
+      "split": "final_test",
+      "item": "定位误检",
+      "expected": "无对应标注框",
+      "actual": {
+        "x": 783,
+        "y": 478,
+        "w": 417,
+        "h": 148
+      },
+      "module": "检测",
+      "evidence": "source=color:green",
+      "recognition_item": false
+    },
+    {
+      "image_id": "fin_empty_lot",
+      "split": "final_test",
+      "item": "定位误检",
+      "expected": "无对应标注框",
+      "actual": {
+        "x": 273,
+        "y": 534,
+        "w": 71,
+        "h": 22
+      },
+      "module": "检测",
+      "evidence": "source=color:yellow",
+      "recognition_item": false
+    }
+  ],
+  "recognition_note": "号码归一化后为空的标注不参与逐字和整牌。夹具分数和 8 张合成样本不在本次结果里。",
+  "pipeline_commit": "d7e9d13c6ed0361f9b7cebeefa9d0eb59d3c7ec3",
+  "pipeline_note": "- 克隆的提交仓库没有 vendor/a_plate。检出框的 source 为 color:* 或 gradient，来自仓库自带的内置检测。"
+}

@@ -17,12 +17,17 @@ from metrics import (
     DEFAULT_IOU_THRESHOLD,
     SPLITS,
     canon_color,
+    char_sequence,
+    has_scorable_text,
     iou,
+    match_plates,
     median,
     parse_box,
     percentile_nearest_rank,
+    plate_string,
     public_report,
     score_images,
+    stated_count,
     summary_lines,
 )
 
@@ -309,6 +314,396 @@ def _count_view(report: dict, field: str) -> dict:
     return {"correct": block["correct"], "total": block["total"]}
 
 
+def _segmentation(plate: dict) -> dict:
+    value = plate.get("segmentation")
+    return value if isinstance(value, dict) else {}
+
+
+def _recognition(plate: dict) -> dict:
+    value = plate.get("recognition")
+    return value if isinstance(value, dict) else {}
+
+
+def _module_for_unmatched(pred: dict) -> tuple[str | None, str]:
+    """只在流水线输出自己写明阶段时指出模块。"""
+    error = pred.get("error") if isinstance(pred.get("error"), dict) else {}
+    code = error.get("code")
+    warnings = [str(item) for item in (pred.get("warnings") or [])]
+    text = "；".join(warnings)
+    if code == "detect_failed":
+        return "检测", error.get("message") or code
+    if "矫正失败" in text:
+        return "矫正", text
+    if "误检" in text or int(pred.get("rejected") or 0) > 0:
+        return "集成过滤（D）", text or f"rejected={pred.get('rejected')}"
+    if code == "no_plate":
+        return "检测", error.get("message") or code
+    return None, text
+
+
+def _emitted_sources(pred_plates: list[dict], warnings: list) -> tuple[str | None, str]:
+    sources = [str(plate.get("source")) for plate in pred_plates if plate.get("source")]
+    parts = []
+    if sources:
+        parts.append("source=" + ",".join(sources))
+    if warnings:
+        parts.append("；".join(str(item) for item in warnings))
+    if sources:
+        return "检测", "；".join(parts)
+    return None, "；".join(parts)
+
+
+def _plate_module(pred_plate: dict, kind: str, count_matches: bool | None = None) -> tuple[str | None, str]:
+    seg = _segmentation(pred_plate)
+    rec = _recognition(pred_plate)
+    source = pred_plate.get("source")
+    if kind == "localization":
+        if source:
+            return "检测", f"source={source}"
+        return None, ""
+    if kind == "color":
+        if "color" in pred_plate:
+            return "颜色（B）", f"color={pred_plate.get('color')}"
+        return None, "输出里没有 color"
+    if kind == "char_count":
+        if seg:
+            detail = f"segmentation.count={seg.get('count')} status={seg.get('status')}"
+            message = seg.get("message")
+            if message:
+                detail += f" message={message}"
+            return "字符分割（B）", detail
+        return None, "输出里没有 segmentation"
+    if kind == "recognition":
+        seg_note = f"segmentation.status={seg.get('status')} count={seg.get('count')}" if seg else ""
+        rec_note = f"recognition.status={rec.get('status')} text={rec.get('text')}" if rec else ""
+        if count_matches is False and seg:
+            detail = seg_note
+            if rec_note:
+                detail += f"；{rec_note}"
+            return "字符分割（B）", detail
+        if rec:
+            detail = rec_note
+            if seg.get("status") not in (None, "", "ok") and seg_note:
+                detail += f"；{seg_note}"
+            return "字符识别（C）", detail
+        if seg.get("status") not in (None, "", "ok"):
+            return "字符分割（B）", seg_note
+        if pred_plate.get("status"):
+            return None, f"status={pred_plate.get('status')}"
+        return None, ""
+    return None, ""
+
+
+def build_traces(images: list[dict], iou_threshold: float, manifest: dict) -> tuple[list[dict], list[dict]]:
+    """逐图对照。号码为空的标注不进入逐字和整牌失败。不改计分。"""
+    traces = []
+    failures = []
+    for image in images:
+        image_id = image.get("image_id")
+        split_name = _split_of(manifest, image_id)
+        if image.get("error") or image.get("pred") is None:
+            failure = {
+                "image_id": image_id,
+                "split": split_name,
+                "item": "调用",
+                "expected": "pipeline.run 返回 plates",
+                "actual": image.get("error") or "missing prediction",
+                "module": None,
+                "evidence": "调用抛错，该图不进入准确率分母",
+                "recognition_item": False,
+            }
+            failures.append(failure)
+            traces.append(
+                {
+                    "image_id": image_id,
+                    "split": split_name,
+                    "error": failure["actual"],
+                    "failures": [failure],
+                }
+            )
+            continue
+        gt = image["gt"]
+        pred = image["pred"]
+        gt_plates = list(gt.get("plates") or [])
+        pred_plates = list(pred.get("plates") or [])
+        matches, false_pos, false_neg = match_plates(gt_plates, pred_plates, iou_threshold)
+        image_failures = []
+
+        def add_failure(item, expected, actual, module, evidence, recognition_item):
+            row = {
+                "image_id": image_id,
+                "split": split_name,
+                "item": item,
+                "expected": expected,
+                "actual": actual,
+                "module": module,
+                "evidence": evidence,
+                "recognition_item": recognition_item,
+            }
+            image_failures.append(row)
+            failures.append(row)
+
+        presence_ok = gt_present_local(gt) == (len(pred_plates) > 0)
+        if not presence_ok:
+            if (not gt.get("has_plate")) and pred_plates:
+                module, evidence = _emitted_sources(pred_plates, pred.get("warnings") or [])
+            else:
+                module, evidence = _module_for_unmatched(pred)
+            add_failure(
+                "车牌是否存在",
+                bool(gt.get("has_plate")),
+                len(pred_plates) > 0,
+                module,
+                evidence,
+                False,
+            )
+        matched_gt = {}
+        for gi, pi, value in matches:
+            matched_gt[gi] = (pi, value)
+            gt_plate = gt_plates[gi]
+            pred_plate = pred_plates[pi]
+            scorable = has_scorable_text(gt_plate)
+            gt_color = canon_color(gt_plate.get("color"))
+            pred_color = canon_color(pred_plate.get("color"))
+            if not (gt_color is not None and gt_color == pred_color):
+                module, evidence = _plate_module(pred_plate, "color")
+                add_failure("颜色", gt_plate.get("color"), pred_plate.get("color"), module, evidence, False)
+            if gt_plate.get("char_count") is not None and stated_count(pred_plate) != int(gt_plate["char_count"]):
+                module, evidence = _plate_module(pred_plate, "char_count")
+                add_failure(
+                    "字符数量",
+                    int(gt_plate["char_count"]),
+                    stated_count(pred_plate),
+                    module,
+                    evidence,
+                    False,
+                )
+            if scorable:
+                gt_seq = char_sequence(gt_plate)
+                pred_seq = char_sequence(pred_plate)
+                count_matches = None
+                if gt_plate.get("char_count") is not None:
+                    count_matches = stated_count(pred_plate) == int(gt_plate["char_count"])
+                diffs = []
+                for index, ch in enumerate(gt_seq):
+                    got = pred_seq[index] if index < len(pred_seq) else ""
+                    if got != ch:
+                        diffs.append(f"{index}:{ch}->{got or '缺'}")
+                if diffs:
+                    module, evidence = _plate_module(pred_plate, "recognition", count_matches)
+                    add_failure(
+                        "逐字",
+                        "".join(gt_seq),
+                        "".join(pred_seq),
+                        module,
+                        evidence + (f"；错位 {', '.join(diffs)}" if evidence else f"错位 {', '.join(diffs)}"),
+                        True,
+                    )
+                if plate_string(gt_plate) != plate_string(pred_plate):
+                    module, evidence = _plate_module(pred_plate, "recognition", count_matches)
+                    add_failure(
+                        "整牌",
+                        plate_string(gt_plate),
+                        plate_string(pred_plate),
+                        module,
+                        evidence,
+                        True,
+                    )
+        miss_module, miss_evidence = _module_for_unmatched(pred)
+        for gi in false_neg:
+            gt_plate = gt_plates[gi]
+            scorable = has_scorable_text(gt_plate)
+            add_failure(
+                "定位",
+                gt_plate.get("box"),
+                "未配上",
+                miss_module,
+                miss_evidence,
+                False,
+            )
+            if scorable:
+                add_failure(
+                    "整牌（端到端）",
+                    plate_string(gt_plate),
+                    "",
+                    miss_module,
+                    "没有配上的预测框，端到端整牌算错；不进入定位命中后的识别率。"
+                    + (f" {miss_evidence}" if miss_evidence else ""),
+                    True,
+                )
+        for pi in false_pos:
+            pred_plate = pred_plates[pi]
+            module, evidence = _plate_module(pred_plate, "localization")
+            add_failure(
+                "定位误检",
+                "无对应标注框",
+                pred_plate.get("box"),
+                module,
+                evidence,
+                False,
+            )
+        plate_rows = []
+        for gi, gt_plate in enumerate(gt_plates):
+            matched = matched_gt.get(gi)
+            pred_plate = pred_plates[matched[0]] if matched else None
+            plate_rows.append(
+                {
+                    "plate_id": gt_plate.get("plate_id"),
+                    "recognition_item": has_scorable_text(gt_plate),
+                    "expected": {
+                        "box": gt_plate.get("box"),
+                        "number": plate_string(gt_plate),
+                        "color": canon_color(gt_plate.get("color")),
+                        "char_count": gt_plate.get("char_count"),
+                    },
+                    "actual": None
+                    if pred_plate is None
+                    else {
+                        "box": pred_plate.get("box"),
+                        "iou": matched[1],
+                        "number": plate_string(pred_plate),
+                        "color": canon_color(pred_plate.get("color")),
+                        "char_count": stated_count(pred_plate),
+                        "source": pred_plate.get("source"),
+                        "status": pred_plate.get("status"),
+                        "segmentation_status": _segmentation(pred_plate).get("status"),
+                        "recognition_status": _recognition(pred_plate).get("status"),
+                    },
+                }
+            )
+        traces.append(
+            {
+                "image_id": image_id,
+                "split": split_name,
+                "relative_path": gt.get("relative_path"),
+                "elapsed_s": image.get("elapsed_s"),
+                "has_plate": bool(gt.get("has_plate")),
+                "pred_count": len(pred_plates),
+                "presence_correct": presence_ok,
+                "tp": len(matches),
+                "fp": len(false_pos),
+                "fn": len(false_neg),
+                "error_code": (pred.get("error") or {}).get("code") if isinstance(pred.get("error"), dict) else None,
+                "warnings": pred.get("warnings") or [],
+                "plates": plate_rows,
+                "failures": image_failures,
+            }
+        )
+    return traces, failures
+
+
+def gt_present_local(gt: dict) -> bool:
+    if "has_plate" in gt:
+        return bool(gt["has_plate"])
+    return len(gt.get("plates") or []) > 0
+
+
+def _fmt_rate(block: dict) -> str:
+    accuracy = block.get("accuracy")
+    if accuracy is None:
+        return f"{block['correct']}/{block['total']}"
+    return f"{block['correct']}/{block['total']}（{accuracy:.6f}）"
+
+
+def results_markdown(report: dict) -> str:
+    loc = report["localization"]
+    runtime = report["runtime"]
+    lines = [
+        "# 课程测试结果",
+        "",
+        "这次数字只来自 `eval/evaluate.py` 对冻结清单里 validation 和 final_test 的一次 `pipeline.run`。",
+        "夹具分数和提交仓库的 8 张合成样本没有用在这里。号码归一化后为空的标注不参与逐字和整牌。",
+        "",
+        f"- 流水线：`{report.get('pipeline')}`",
+        f"- 流水线提交：`{report.get('pipeline_commit')}`" if report.get("pipeline_commit") else "",
+        report.get("pipeline_note") or "",
+        f"- 划分：{', '.join(report.get('splits') or [])}",
+        f"- IoU 阈值：{report['iou_threshold']}",
+        f"- 图像 {report['n_images']}，调用错误 {report['n_errors']}",
+        f"- 标注车牌 {report['n_gt_plates']}，预测车牌 {report['n_pred_plates']}",
+        "",
+        "## 指标",
+        "",
+        "| 指标 | 结果 |",
+        "| --- | --- |",
+        f"| 车牌是否存在 | {_fmt_rate(report['plate_presence'])} |",
+        (
+            f"| 定位精确率 | {loc['tp']}/{loc['tp'] + loc['fp']}"
+            f"（{'' if loc['precision'] is None else f'{loc['precision']:.6f}'}） |"
+        ),
+        (
+            f"| 定位召回率 | {loc['tp']}/{loc['tp'] + loc['fn']}"
+            f"（{'' if loc['recall'] is None else f'{loc['recall']:.6f}'}） |"
+        ),
+        f"| 颜色 | {_fmt_rate(report['color'])} |",
+        f"| 字符数量 | {_fmt_rate(report['char_count'])} |",
+        f"| 逐字（定位命中后） | {_fmt_rate(report['character']['on_hits'])} |",
+        f"| 逐字（端到端） | {_fmt_rate(report['character']['end_to_end'])} |",
+        f"| 整牌（定位命中后） | {_fmt_rate(report['full_plate']['on_hits'])} |",
+        f"| 整牌（端到端） | {_fmt_rate(report['full_plate']['end_to_end'])} |",
+    ]
+    if runtime["n_timed"]:
+        lines.append(
+            f"| 运行时间 | {runtime['n_timed']} 张，总和 {runtime['total_s']:.6f} 秒，"
+            f"平均 {runtime['mean_s']:.6f} 秒，中位数 {runtime['median_s']:.6f} 秒，"
+            f"p95 {runtime['p95_s']:.6f} 秒 |"
+        )
+    else:
+        lines.append("| 运行时间 | 无 |")
+    lines.extend(["", "## 逐图", "", "| 划分 | 图像 | 有牌 | 预测块数 | TP/FP/FN | 标注号码 | 预测号码 | 耗时（秒） |", "| --- | --- | --- | --- | --- | --- | --- | --- |"])
+    for trace in report.get("traces") or []:
+        if trace.get("error"):
+            lines.append(
+                f"| {trace.get('split')} | {trace['image_id']} |  |  |  |  | 调用错误 |  |"
+            )
+            continue
+        expected_numbers = []
+        actual_numbers = []
+        for plate in trace["plates"]:
+            number = plate["expected"]["number"] or "（空，不参与识别率）"
+            expected_numbers.append(number)
+            actual = plate["actual"]
+            actual_numbers.append("未配上" if actual is None else (actual["number"] or "（空）"))
+        elapsed = trace.get("elapsed_s")
+        elapsed_text = "" if elapsed is None else f"{elapsed:.6f}"
+        lines.append(
+            "| {split} | {image} | {has} | {count} | {tp}/{fp}/{fn} | {expected} | {actual} | {elapsed} |".format(
+                split=trace.get("split"),
+                image=trace["image_id"],
+                has="有" if trace["has_plate"] else "无",
+                count=trace["pred_count"],
+                tp=trace["tp"],
+                fp=trace["fp"],
+                fn=trace["fn"],
+                expected="<br>".join(expected_numbers) or "无",
+                actual="<br>".join(actual_numbers) or "无",
+                elapsed=elapsed_text,
+            )
+        )
+    lines.extend(["", "## 失败", "", "号码为空的牌不会出现在逐字或整牌行里。模块只在输出字段写明阶段时填写。", "", "| 图像 | 项目 | 期望 | 实际 | 模块 | 依据 |", "| --- | --- | --- | --- | --- | --- |"])
+    failure_rows = report.get("failures") or []
+    if not failure_rows:
+        lines.append("|  |  |  |  |  | 本次没有失败项 |")
+    for row in failure_rows:
+        lines.append(
+            "| {image} | {item} | {expected} | {actual} | {module} | {evidence} |".format(
+                image=row["image_id"],
+                item=row["item"],
+                expected=_md(row["expected"]),
+                actual=_md(row["actual"]),
+                module=row["module"] or "",
+                evidence=_md(row["evidence"]),
+            )
+        )
+    lines.append("")
+    return "\n".join(lines)
+
+
+def _md(value) -> str:
+    text = json.dumps(value, ensure_ascii=False) if isinstance(value, (dict, list)) else str(value)
+    return text.replace("|", "\\|").replace("\n", " ")
+
+
 def run_manifest(args) -> int:
     path = pipeline_path(args.pipeline)
     run = load_pipeline(path)
@@ -388,13 +783,23 @@ def run_manifest(args) -> int:
     report = public_report(score_images(images, args.iou), args.iou, "system-evaluation")
     report["splits"] = splits
     report["pipeline"] = str(path)
+    report["manifest"] = str(manifest_path)
+    traces, failures = build_traces(images, args.iou, manifest)
+    report["traces"] = traces
+    report["failures"] = failures
+    report["recognition_note"] = "号码归一化后为空的标注不参与逐字和整牌。夹具分数和 8 张合成样本不在本次结果里。"
     print("系统评测（由 pipeline.run 在清单图像上得到）")
     for line in summary_lines(report):
         print(line)
     text = json.dumps(report, ensure_ascii=False, indent=2)
     if args.output:
-        Path(args.output).write_text(text + "\n", encoding="utf-8")
-        print(f"完整 JSON 已写入 {args.output}")
+        output = Path(args.output)
+        output.parent.mkdir(parents=True, exist_ok=True)
+        output.write_text(text + "\n", encoding="utf-8")
+        table_path = output.with_suffix(".md")
+        table_path.write_text(results_markdown(report), encoding="utf-8")
+        print(f"完整 JSON 已写入 {output}")
+        print(f"逐图结果表已写入 {table_path}")
     else:
         print(text)
     return 0
