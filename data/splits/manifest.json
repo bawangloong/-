@@ -1,13 +1,57 @@
 {
   "version": 1,
-  "description": "固定划分。development 给检测、分割和流水线调试；library 只给字符库；validation 和 final_test 只给评测。名单开始是空的，填入后不要为了刷分把样本从终测挪进字符库或开发集。",
-  "frozen_split_names": ["development", "library", "validation", "final_test"],
-  "evaluate_splits": ["validation", "final_test"],
-  "library_must_not_overlap": ["validation", "final_test"],
+  "description": "固定划分。development 给检测、分割和流水线调试；library 只给字符库；validation 和 final_test 只给评测。名单填好后不要为了刷分把样本从终测挪进字符库或开发集。",
+  "frozen_split_names": [
+    "development",
+    "library",
+    "validation",
+    "final_test"
+  ],
+  "evaluate_splits": [
+    "validation",
+    "final_test"
+  ],
+  "library_must_not_overlap": [
+    "validation",
+    "final_test"
+  ],
   "splits": {
-    "development": [],
-    "library": [],
-    "validation": [],
-    "final_test": []
+    "development": [
+      "dev_moto_beijing",
+      "dev_internal_hubei",
+      "dev_blue_shaanxi",
+      "dev_police_huangpu",
+      "dev_green_small",
+      "dev_ccpd_3",
+      "dev_police_fujian"
+    ],
+    "library": [
+      "lib_armed_police",
+      "lib_green_internal",
+      "lib_yellow_beijing",
+      "lib_military_js",
+      "lib_ccpd_2"
+    ],
+    "validation": [
+      "val_ccpd_0",
+      "val_diplomatic",
+      "val_yellow_bike",
+      "val_green_shanghai",
+      "val_multi_hk",
+      "val_military_glare",
+      "val_blur_california",
+      "val_empty_aerial"
+    ],
+    "final_test": [
+      "fin_ccpd_1",
+      "fin_ccpd_4",
+      "fin_green_rickshaw",
+      "fin_yellow_shaanxi",
+      "fin_military_hg",
+      "fin_diplomatic",
+      "fin_green_large",
+      "fin_blur_motorcycle",
+      "fin_empty_lot"
+    ]
   }
 }

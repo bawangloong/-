@@ -1,6 +1,6 @@
 # 数据布局与标注
 
-角色 E 的数据约定。这里没有车牌照片，也没有下载数据集。`data/schema/examples.json` 里的记录只是空模板，编号都以 `EXAMPLE_` 开头，不能写进清单。
+角色 E 的数据约定。`data/raw/` 里是这次个人作业用的公开图像，每条标注的 `source` 写了来源页和许可名称。`data/schema/examples.json` 里的记录只是空模板，编号都以 `EXAMPLE_` 开头，不能写进清单。
 
 ## 目录
 
@@ -10,8 +10,8 @@
 | `data/raw/library/` | 只给字符库切样本。 |
 | `data/raw/validation/` | 调完后看指标。不能拿去建字符库。 |
 | `data/raw/final_test/` | 最后一次评测。不能拿去建字符库，也不能看完结果再改算法重测。 |
-| `data/annotations/annotations.jsonl` | 正式标注，一行一个 JSON。现在是空文件。 |
-| `data/splits/manifest.json` | 固定四档划分。现在四个名单都是空的。 |
+| `data/annotations/annotations.jsonl` | 正式标注，一行一个 JSON。 |
+| `data/splits/manifest.json` | 固定四档划分。 |
 | `data/schema/` | 字段约定、JSON Schema 和示例。 |
 | `data/check_dataset.py` | 检查字段、划分和重复图像。 |
 
@@ -75,8 +75,8 @@ python data/check_dataset.py
 
 PNG、BMP、PPM、PGM 用标准库解码。JPEG、WEBP、TIFF 需要本机已安装的 Pillow；没装时这些文件仍做完全重复检查，但近似哈希算不出，脚本以失败结束，避免漏掉近重复。平均哈希会漏掉一些只改颜色的图，它是筛查，不是唯一性证明。
 
-当前清单和 `data/raw/` 都是空的，直接运行会说明没有样本，并以退出码 0 结束。发现重复、字段错误或无法解码时退出码为 1。
+直接运行会检查已填好的图像。没有问题时退出码为 0。发现重复、字段错误或无法解码时退出码为 1。
 
 ## 不要做的事
 
-不要把私人车牌照片或大型车牌数据集提交进这个仓库。小组后面如果使用自己拍摄或有许可的公开数据，在 `source` 里写明来源、许可和网址。没有许可的图不要放进来。
+这批图只给这次个人作业使用。每张图的来源页和许可名称写在标注的 `source` 里。没有来源记录的图不要放进来。提交仓库 `samples/` 里的 8 张合成图没有进入正式清单。
