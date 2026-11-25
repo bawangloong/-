@@ -15,6 +15,8 @@
 | 已收到的 B 模块（颜色和字符分割） | `received/b/INTAKE.md` |
 | 已收到的 C 模块（字符库和识别） | `received/c/INTAKE.md` |
 | 已收到的 D 模块（界面和流水线） | `received/d/INTAKE.md` |
-| 出测试表、报告、幻灯片、视频和 ZIP 之前还缺什么 | `docs/handoff-checklist.md` |
+| 课程测试表 | `eval/results/system-evaluation.json` |
+| 课程报告、幻灯片、讲解稿、提交清单 | `docs/course/` |
+| 出视频和完整 ZIP 之前还缺什么 | `docs/handoff-checklist.md` |
 
-夹具打印的数字只对照指标代码，不是系统实测。清单里还没有正式图像；没有 `pipeline.py` 时，评测脚本会说明流水线缺失并退出。
+夹具打印的数字只对照指标代码，不是系统实测。正式图像在 `data/raw/`。仓库根目录没有 `pipeline.py`，评测时用 `--pipeline` 指向提交仓库。课程数字以 `eval/results/system-evaluation.json` 那一次运行为准。
