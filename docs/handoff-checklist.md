@@ -50,7 +50,7 @@
 - 图像已经放进四个目录，JSONL 标注和清单已写好。来源记在每条 `source`。
 - 验证集和终测集都有无牌、多牌、蓝黄绿白黑、倾斜、模糊和反光。模糊图的号码不可读，不参与逐字和整牌。
 - `python3 data/check_dataset.py` 已通过：没有完全重复、近似重复或跨划分泄漏。
-- 终测名单冻结后再跑 `python eval/evaluate.py`。在此之前不要把夹具分数抄进表里。这次没有跑评测。
+- 终测名单已经冻结。`python3 eval/evaluate.py --pipeline` 的这次结果在 `eval/results/system-evaluation.json`。夹具分数和 8 张合成样本不能抄进这张表。
 
 ## 报告之前
 

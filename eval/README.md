@@ -18,7 +18,7 @@ python eval/evaluate.py --manifest data/splits/manifest.json --splits validation
 
 不加 `--fixture` 时，脚本到仓库根目录找 `pipeline.py`，也可以用 `--pipeline` 指定路径。文件不存在就退出码 2，并打印以 `pipeline missing:` 开头的说明。文件在但导入失败，或没有 `run`，退出码 3，那不是 missing。
 
-默认清单是 `data/splits/manifest.json`，默认只评 `validation` 和 `final_test`。这两个名单现在是空的：一旦流水线文件存在，脚本会说明没有图像、没有调用流水线、没有评测结果。名单为空时流水线文件还不存在，则先报 `pipeline missing`。
+默认清单是 `data/splits/manifest.json`，默认只评 `validation` 和 `final_test`。名单为空时脚本说明没有图像、没有调用流水线、没有评测结果；流水线文件还不存在，则先报 `pipeline missing`。课程实测写在 `eval/results/system-evaluation.json`，夹具打印的分数不是那份结果。
 
 标注或图像文件没准备好时，脚本停止，不输出指标。流水线对某一张图抛错时，该图只计入 `n_errors`，不进入各项准确率的分母。
 
